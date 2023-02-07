@@ -1,0 +1,7 @@
+{
+  "name": "MySleepAssistant",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
