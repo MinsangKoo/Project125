@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-card-content>
+        Name
+      </ion-card-content>
+        <ion-item>
+          <br>
+          <ion-textarea placeholder="Your name:"></ion-textarea>
+        </ion-item>
+    </ion-card>
+
+
+  </div>
+
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-item>
+        <ion-select placeholder="Gender">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-card>
+      <ion-button expand ="block">Change Sleep Availability</ion-button>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-card>
+      <ion-button expand ="block">Reconnect Smartwatch to Fitbit</ion-button>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-button className="cancel-button">Cancel</ion-button>
+  </div>
+  <div>
+    <ion-button className="apply-button">Apply</ion-button>
+  </div>
+
+</ion-content>
