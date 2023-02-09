@@ -1,3 +1,4 @@
+//constants taken from https://blog.fitbit.com/sleep-study/
 const avg_m_deep = 15;
 const avg_m_light = 52;
 const avg_m_rem = 21;
