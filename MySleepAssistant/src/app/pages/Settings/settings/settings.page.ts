@@ -13,9 +13,7 @@ export class SettingsPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log("Hello from settings html page")
-    console.log(this.activatedRoute.snapshot.paramMap)
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
 
 }

@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Sleep Stats',
+    redirectTo: 'pages/Sleep_Stats/sleep-stats',
     pathMatch: 'full'
   },
   {
@@ -22,7 +22,17 @@ const routes: Routes = [
   {
     path: 'pages/Settings/settings',
     loadChildren: () => import('./pages/Settings/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'pages/Connect/connect',
+    loadChildren: () => import('./pages/Connect/connect/connect.module').then( m => m.ConnectPageModule)
+  },
+  {
+    path: 'pages/Availability/availability',
+    loadChildren: () => import('./pages/Availability/availability/availability.module').then( m => m.AvailabilityPageModule)
   }
+
+
 ];
 
 @NgModule({
