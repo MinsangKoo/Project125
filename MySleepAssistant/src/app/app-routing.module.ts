@@ -4,7 +4,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+
     redirectTo: 'folder/Sign_Up',
+
     pathMatch: 'full'
   },
   {
@@ -24,6 +26,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/Settings/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
+
+    path: 'pages/Connect/connect',
+    loadChildren: () => import('./pages/Connect/connect/connect.module').then( m => m.ConnectPageModule)
+  },
+  {
+    path: 'pages/Availability/availability',
+    loadChildren: () => import('./pages/Availability/availability/availability.module').then( m => m.AvailabilityPageModule)
+  }
+
+
     path: 'pages/Initial_Availability/initial-availability',
     loadChildren: () => import('./pages/Initial_Availability/initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
   },
@@ -41,6 +53,7 @@ const routes: Routes = [
   //   path: 'pages/initial-availability',
   //   loadChildren: () => import('./initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
   // }
+
 
 ];
 

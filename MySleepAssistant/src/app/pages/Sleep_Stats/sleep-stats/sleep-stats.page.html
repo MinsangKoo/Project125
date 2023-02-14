@@ -1,61 +1,84 @@
+<!-- Contains code to name our page "Sleep Stats" and also provide the hamburger button to access the side menu -->
 <ion-header>
-
   <ion-toolbar className="header">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Sleep Stats</ion-title>
+    <ion-title style="font-size:28px">Sleep Stats</ion-title>
   </ion-toolbar>
-  
 </ion-header>
 
-<div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Sleep Score:</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{date}}
-      <br>
-      {{sleep_score}}
-    </ion-card-content>
-  </ion-card>
-</div>
+<ion-content>
 
-<div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
-  <ion-card>
+  <div style="padding-top: 3%">
+    <ion-card>
 
-    <ion-card-title>Sleep Reccomendation:</ion-card-title>
-    <ion-card-content>
-      {{sleep_reccomendation_text}}
-    </ion-card-content>
-  </ion-card>
-</div>
+      <ion-card-header>
+        <ion-card-title style="font-size:25px; font-weight: bold">Sleep Score</ion-card-title>
+      </ion-card-header>
 
-<div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Sleep Metrics:</ion-card-title>
-    </ion-card-header>
+      <ion-card-content style="font-size:20px">
+        {{date}}
+        <br>
+        {{sleep_score}}
+      </ion-card-content>
 
-    <ion-card-content className="sleep-metrics-data">
-      {{date}}
-      <br>
-      Sleep Duration:
-      <br>
-      {{sleep_duration}}
-      <br>
-      Sleep Stage Ratio:
-      <br>
-      Light: {{light_sleep_ratio}}%
-      <br>
-      Deep: {{deep_sleep_ratio}}%
-      <br>
-      REM: {{rem_sleep_ratio}}%
-    </ion-card-content>
-  </ion-card>
-</div>
+    </ion-card>
+  </div>
 
-<!-- <ion-content className="body">
-  test
-</ion-content> -->
+  <div style="padding-top: 1%;">
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title style="font-size:25px; font-weight: bold">Sleep Recommendation</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content style="font-size:20px">
+        {{sleep_reccomendation_text}}
+      </ion-card-content>
+  
+    </ion-card>
+  </div>
+
+  <div style="padding-top: 1%;">
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title style="font-size:25px; font-weight: bold">
+          Sleep Metrics
+        </ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-text style="font-size: 20px">{{date}}</ion-text>
+      </ion-card-content>
+
+      <ion-card-content style="text-align: left">
+        <ion-text style="font-size: 20px; font-weight: bold">Sleep Duration:</ion-text>
+        <br>
+        <ion-text style="font-size: 17px;">{{sleep_duration}}</ion-text>
+        <br>
+        <br>
+        <ion-text style="font-size: 20px; font-weight: bold;">Sleep Stage Ratio:</ion-text>
+        <br>
+        <ion-text style="font-size: 17px">Light: {{light_sleep_ratio}}%</ion-text>
+        <br>
+        <ion-text style="font-size: 17px">Deep: {{deep_sleep_ratio}}%</ion-text>
+        <br>
+        <ion-text style="font-size: 17px">REM: {{rem_sleep_ratio}}%</ion-text>
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+  
+</ion-content>
+
+
+
+
+
+
+
+
+
+
