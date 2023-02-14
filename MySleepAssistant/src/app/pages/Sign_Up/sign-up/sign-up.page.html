@@ -1,0 +1,53 @@
+<ion-content>
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; align-items: center;">
+    My Sleep Assistant
+  </div>
+
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-item>
+        <ion-textarea placeholder="Your name:"></ion-textarea>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-item>
+        <ion-select placeholder="Gender">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-card-content style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; align-items: center;">
+        Birthday
+      </ion-card-content>
+      <ion-datetime
+        value="2022-04-21T00:00:00"
+        min="2022-03-01T00:00:00"
+        max="2022-05-31T23:59:59">
+      </ion-datetime>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col> </ion-col>
+        
+        <ion-col>
+          <ion-button expand="block">Next</ion-button>
+        </ion-col>
+        
+        <ion-col> </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
