@@ -8,5 +8,62 @@
 </ion-header>
 
 <ion-content>
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-card-content>
+        Name
+      </ion-card-content>
+        <ion-item>
+          <br>
+          <ion-textarea placeholder="Your name:"></ion-textarea>
+        </ion-item>
+    </ion-card>
+
+
+  </div>
+
+  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+    <ion-card>
+      <ion-item>
+        <ion-select placeholder="Gender">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-card>
+      <ion-button expand ="block">Change Sleep Availability</ion-button>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-card>
+      <ion-button expand ="block">Reconnect Smartwatch to Fitbit</ion-button>
+    </ion-card>
+  </div>
+
+  
+
+
 
 </ion-content>
+
+<div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block">Cancel</ion-button>
+      </ion-col>
+      
+      <ion-col> </ion-col>
+      
+      <ion-col>
+        <ion-button expand="block">Apply</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

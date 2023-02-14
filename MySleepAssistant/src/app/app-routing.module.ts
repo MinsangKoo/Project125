@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Sleep Stats',
+    redirectTo: 'folder/Sign_Up',
     pathMatch: 'full'
   },
   {
@@ -22,7 +22,26 @@ const routes: Routes = [
   {
     path: 'pages/Settings/settings',
     loadChildren: () => import('./pages/Settings/settings/settings.module').then( m => m.SettingsPageModule)
-  }
+  },
+  {
+    path: 'pages/Initial_Availability/initial-availability',
+    loadChildren: () => import('./pages/Initial_Availability/initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
+  },
+  {
+    path: 'pages/Sign_Up/sign-up',
+    loadChildren: () => import('./pages/Sign_Up/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'change-availability',
+    loadChildren: () => import('./pages/Change_Availability/change-availability.module').then( m => m.ChangeAvailabilityPageModule)
+  },
+
+
+  // {
+  //   path: 'pages/initial-availability',
+  //   loadChildren: () => import('./initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
+  // }
+
 ];
 
 @NgModule({

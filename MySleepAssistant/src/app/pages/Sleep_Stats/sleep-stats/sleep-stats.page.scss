@@ -6,7 +6,16 @@
     background-color: blue;
 }
 
-// * {
-//     background-color: red;
-//     color: blue;
-//   }
+ion-card {
+    justify-content: center;
+    align-items: center;
+    flex-flow: column-reverse;
+    text-align: center;
+}
+
+.sleep-metrics-data {
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    flex-flow: column-reverse;
+}

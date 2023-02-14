@@ -9,6 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 export class SleepStatsPage implements OnInit {
 
   public folder!: string;
+  public date = '2/23/2003';
+  public sleep_score = 20;
+  public sleep_reccomendation_text = "Go to BED!!!!";
+  public sleep_duration = "2h 41m";
+  public light_sleep_ratio = 70;
+  public deep_sleep_ratio = 15;
+  public rem_sleep_ratio = 15;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
