@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
 
-    redirectTo: 'folder/Sign_Up',
+    redirectTo: 'pages/Sign_Up/sign-up',
 
     pathMatch: 'full'
   },
@@ -46,14 +46,15 @@ const routes: Routes = [
     path: 'pages/Change_Availability/change-availability',
     loadChildren: () => import('./pages/Change_Availability/change-availability.module').then( m => m.ChangeAvailabilityPageModule)
   },
-
+  {
+    path: 'pages/Connect2/connect2',
+    loadChildren: () => import('./pages/Connect2/connect2/connect2.module').then( m => m.Connect2PageModule)
+  }
 
   // {
   //   path: 'pages/initial-availability',
   //   loadChildren: () => import('./initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
   // }
-
-
 ];
 
 @NgModule({
