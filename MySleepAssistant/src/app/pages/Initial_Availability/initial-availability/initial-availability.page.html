@@ -4,14 +4,27 @@
   </ion-toolbar>
 </ion-header> -->
 
+<!-- <ion-datetime style="color: black" id="datetime" presentation="time" displayFormat="h:mm" locale="en-US"></ion-datetime> -->
 
 <ion-content>
-  <ion-title>{{ title }}</ion-title>
-  <br>
-  {{ message }}
-  <br>
-  <br>
-  Monday
+  <div style="padding-top:5%">
+    <ion-text style="font-size:36px; text-align: center; color: #ffffff">
+      <p>
+        {{ title }}
+      </p>
+    </ion-text>
+  </div>
+
+  <div>
+    <ion-text style="font-size:20px; color: #ffffff">
+      <p style="padding-left:5%; padding-right:5%">
+        {{ message }}
+      </p>
+    </ion-text>
+  </div>
+
+
+  <ion-text class="inner-text">Monday</ion-text>
   <ion-card>
     <div>
 
@@ -47,7 +60,7 @@
   </ion-card>
 
   <br>
-  Tuesday
+  <ion-text class="inner-text">Tuesday</ion-text>
   <ion-card>
     <div>
 
@@ -83,7 +96,7 @@
   </ion-card>
 
   <br>
-  Wednesday
+  <ion-text class="inner-text">Wednesday</ion-text>
   <ion-card>
     <div>
 
@@ -119,7 +132,7 @@
   </ion-card>
 
   <br>
-  Thursday
+  <ion-text class="inner-text">Thursday</ion-text>
   <ion-card>
     <div>
 
@@ -155,7 +168,7 @@
   </ion-card>
 
   <br>
-  Friday
+  <ion-text class="inner-text">Friday</ion-text>
   <ion-card>
     <div>
 
@@ -191,7 +204,7 @@
   </ion-card>
 
   <br>
-  Saturday
+  <ion-text class="inner-text">Saturday</ion-text>
   <ion-card>
     <div>
 
@@ -227,7 +240,7 @@
   </ion-card>
 
   <br>
-  Sunday
+  <ion-text class="inner-text">Sunday</ion-text>
   <ion-card>
     <div>
 
@@ -268,13 +281,13 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button expand="block">Cancel</ion-button>
+        <ion-button expand="block" routerLink="/pages/Sign_Up/sign-up">Back</ion-button>
       </ion-col>
       
       <ion-col> </ion-col>
       
       <ion-col>
-        <ion-button expand="block">Apply</ion-button>
+        <ion-button expand="block" routerLink="/pages/Connect/connect">Next</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
