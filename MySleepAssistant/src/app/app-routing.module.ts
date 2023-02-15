@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
 
-    redirectTo: 'folder/Sign_Up',
+    redirectTo: 'pages/Sign_Up/sign-up',
 
     pathMatch: 'full'
   },
@@ -33,9 +33,8 @@ const routes: Routes = [
   {
     path: 'pages/Availability/availability',
     loadChildren: () => import('./pages/Availability/availability/availability.module').then( m => m.AvailabilityPageModule)
-  }
-
-
+  },
+  {
     path: 'pages/Initial_Availability/initial-availability',
     loadChildren: () => import('./pages/Initial_Availability/initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
   },
@@ -44,17 +43,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/Sign_Up/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
   {
-    path: 'change-availability',
+    path: 'pages/Change_Availability/change-availability',
     loadChildren: () => import('./pages/Change_Availability/change-availability.module').then( m => m.ChangeAvailabilityPageModule)
   },
-
+  {
+    path: 'pages/Connect2/connect2',
+    loadChildren: () => import('./pages/Connect2/connect2/connect2.module').then( m => m.Connect2PageModule)
+  }
 
   // {
   //   path: 'pages/initial-availability',
   //   loadChildren: () => import('./initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
   // }
-
-
 ];
 
 @NgModule({
