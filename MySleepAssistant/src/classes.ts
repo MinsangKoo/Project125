@@ -8,19 +8,21 @@ const avg_f_light = 52;
 const avg_f_rem = 22;
 const avg_f_sleeptime = 410;
 
-const avg_genZ_sleeptime = 417;
+const avg_genZ_sleepduration = 417;
 const avg_genZ_deep = 17;
 const avg_genZ_light = 50;
 const avg_genZ_rem = 21;
-const avg_mil_sleeptime = 400;
+const avg_genZ_bedtime = new Date();
+console.log(avg_genZ_bedtime.getTime());
+const avg_mil_sleepduration = 400;
 const avg_mil_deep = 16;
 const avg_mil_light = 51;
 const avg_mil_rem = 21;
-const avg_genX_sleeptime = 394;
+const avg_genX_sleepduration = 394;
 const avg_genX_deep = 15;
 const avg_genX_light = 52;
 const avg_genX_rem = 21;
-const avg_boom_sleeptime = 393;
+const avg_boom_sleepduration = 393;
 const avg_boom_deep = 13;
 const avg_boom_light = 54;
 const avg_boom_rem = 21;
@@ -29,12 +31,12 @@ export class sleep_day {
   deep: number;
   light: number;
   rem: number;
-  sleeptime: number;
+  sleepduration: number;
   constructor(d: number, l: number, r: number, s: number) {
     this.deep = d;
     this.light = l;
     this.rem = r;
-    this.sleeptime = s;
+    this.sleepduration = s;
   }
   getDeep() {
     return this.deep;
@@ -46,9 +48,10 @@ export class sleep_day {
     return this.rem;
   }
   getSleeptime() {
-    return this.sleeptime;
+    return this.sleepduration;
   }
 }
+
 export class Person {
   age: number;
   gender: string;
@@ -147,13 +150,13 @@ export class Averages {
       temp1 = avg_f_sleeptime;
     }
     if (this.age >= 11 && this.age < 26) {
-      temp2 = avg_genZ_sleeptime;
+      temp2 = avg_genZ_sleepduration;
     } else if (this.age >= 27 && this.age < 42) {
-      temp2 = avg_mil_sleeptime;
+      temp2 = avg_mil_sleepduration;
     } else if (this.age >= 43 && this.age < 58) {
-      temp2 = avg_genX_sleeptime;
+      temp2 = avg_genX_sleepduration;
     } else {
-      temp2 = avg_boom_sleeptime;
+      temp2 = avg_boom_sleepduration;
     }
     return (temp1 + temp2) / 2;
   }

@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connect.page.scss'],
 })
 export class ConnectPage implements OnInit {
+  public email = '';
+  public password = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
