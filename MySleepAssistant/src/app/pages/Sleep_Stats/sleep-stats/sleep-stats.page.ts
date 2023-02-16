@@ -31,9 +31,9 @@ export class SleepStatsPage implements OnInit {
     var p = new Person(22, 'm');
     var s = new sleep_day(15, 50, 35, 360);
     p.addDay(s);
-    let t = sleep_algo.calculate_sleepscore(p);
+    // let t = sleep_algo.calculate_sleepscore(p);
 
-    console.log(t);
+    // console.log(t);
     console.log('hello');
 
     if (this.dateObj2.getMonth() + 1 < 10)
