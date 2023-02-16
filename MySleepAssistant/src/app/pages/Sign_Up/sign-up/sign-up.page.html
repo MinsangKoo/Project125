@@ -28,10 +28,7 @@
       <ion-card-content style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; align-items: center; font-size:22px">
         Birthday
       </ion-card-content>
-      <ion-datetime
-        value="2022-04-21T00:00:00"
-        min="2022-03-01T00:00:00"
-        max="2022-05-31T23:59:59">
+      <ion-datetime presentation="date" [value]=currentDateString [min]="prevDateString" [max]="currentDateString">
       </ion-datetime>
     </ion-card>
   </div>
