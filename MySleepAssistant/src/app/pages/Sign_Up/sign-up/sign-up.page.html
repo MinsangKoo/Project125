@@ -27,7 +27,7 @@
     <ion-card>
       <ion-item>
         <ion-textarea
-          [(ngmodel)]="name"
+          [(ngModel)]="name"
           placeholder="Your name:"
         ></ion-textarea>
       </ion-item>
@@ -45,7 +45,7 @@
   >
     <ion-card>
       <ion-item>
-        <ion-select [(ngmodel)]="gender" placeholder="Gender">
+        <ion-select [(ngModel)]="gender" placeholder="Gender">
           <ion-select-option value="Male">Male</ion-select-option>
           <ion-select-option value="Female">Female</ion-select-option>
           <ion-select-option value="Other">Other</ion-select-option>
@@ -77,7 +77,7 @@
         Birthday
       </ion-card-content>
       <ion-datetime
-        [(ngmodel)]="birthday"
+        [(ngModel)]="birthday"
         presentation="date"
         [value]="currentDateString"
         [min]="prevDateString"
