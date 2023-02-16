@@ -1,14 +1,14 @@
 import { Averages, Person, sleep_day } from './classes';
 
-let p1 = new Person(1, 'm');
-let s = new sleep_day(1, 1, 1, 1);
+// let p1 = new Person(1, 'm');
+// let s = new sleep_day(1, 1, 1, 1);
 
 export function calculate_sleepscore(person: Person) {
   //Retrieves the averages associated with this persons gender and age
-  let a1 = new Averages(p1);
+  let a1 = new Averages(person);
 
   //Grabs the most recent sleep data of the person
-  var day = p1.getCurDay();
+  var day = person.getCurDay();
   var cur_deep = day.getDeep();
   var cur_light = day.getLight();
   var cur_rem = day.getRem();
