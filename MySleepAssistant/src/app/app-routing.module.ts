@@ -31,10 +31,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/Connect/connect/connect.module').then( m => m.ConnectPageModule)
   },
   {
-    path: 'pages/Availability/availability',
-    loadChildren: () => import('./pages/Availability/availability/availability.module').then( m => m.AvailabilityPageModule)
-  },
-  {
     path: 'pages/Initial_Availability/initial-availability',
     loadChildren: () => import('./pages/Initial_Availability/initial-availability/initial-availability.module').then( m => m.InitialAvailabilityPageModule)
   },
