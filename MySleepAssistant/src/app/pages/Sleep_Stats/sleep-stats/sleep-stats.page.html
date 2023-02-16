@@ -24,7 +24,7 @@
 
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime style="color: black" id="datetime" presentation="date" locale="en-US" [value]=currentDateString [min]="prevDateString" [max]="currentDateString"></ion-datetime>
+            <ion-datetime style="color: black;" id="datetime" presentation="date" locale="en-US" [value]=currentDateString2 [min]="prevDateString2" [max]="currentDateString2"></ion-datetime>
           </ng-template>
         </ion-modal>
         <br>
@@ -57,9 +57,9 @@
         </ion-card-title>
       </ion-card-header>
   
-      <ion-card-content>
+      <!-- <ion-card-content>
         <ion-text style="font-size: 20px">{{dateObj}}</ion-text>
-      </ion-card-content>
+      </ion-card-content> -->
 
       <ion-card-content style="text-align: left">
         <ion-text style="font-size: 20px; font-weight: bold">Sleep Duration:</ion-text>

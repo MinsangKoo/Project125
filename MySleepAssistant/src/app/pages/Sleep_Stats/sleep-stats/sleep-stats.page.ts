@@ -10,16 +10,16 @@ export class SleepStatsPage implements OnInit {
 
   public folder!: string;
   public date = '2/23/2003';
-  public dateObj = new Date();
-  public prevDate = new Date();
+  public dateObj2 = new Date();
+  public prevDate2 = new Date();
   public sleep_score = 20;
-  public sleep_reccomendation_text = "You better go to BED right NOWWWWWWW. This will improve the amount of deep and rem sleep that you get";
+  public sleep_reccomendation_text = "Go to sleep. This will improve the amount of deep and rem sleep that you get";
   public sleep_duration = "2h 41m";
   public light_sleep_ratio = 70;
   public deep_sleep_ratio = 15;
   public rem_sleep_ratio = 15;
-  public currentDateString = "";
-  public prevDateString = "";
+  public currentDateString2 = "";
+  public prevDateString2 = "";
 
 
   constructor(private activatedRoute: ActivatedRoute) { }
@@ -27,30 +27,30 @@ export class SleepStatsPage implements OnInit {
   ngOnInit() {
     // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
 
-    if (this.dateObj.getMonth() + 1 < 10)
-      this.currentDateString = this.dateObj.getFullYear().toString() + '-0' + (this.dateObj.getMonth()+1).toString() + '-';
+    if (this.dateObj2.getMonth() + 1 < 10)
+      this.currentDateString2 = this.dateObj2.getFullYear().toString() + '-0' + (this.dateObj2.getMonth()+1).toString() + '-';
     else
-      this.currentDateString = this.dateObj.getFullYear().toString() + '-' + (this.dateObj.getMonth()+1).toString() + '-';
+      this.currentDateString2 = this.dateObj2.getFullYear().toString() + '-' + (this.dateObj2.getMonth()+1).toString() + '-';
 
-    if (this.dateObj.getDate() < 10)
-      this.currentDateString += '0' + this.dateObj.getDate().toString() + 'T00:00:00';
+    if (this.dateObj2.getDate() < 10)
+      this.currentDateString2 += '0' + this.dateObj2.getDate().toString() + 'T00:00:00';
     else
-      this.currentDateString += this.dateObj.getDate().toString() + 'T00:00:00';
+      this.currentDateString2 += this.dateObj2.getDate().toString() + 'T00:00:00';
 
-    this.prevDate = this.dateObj;
-    this.prevDate.setDate(this.prevDate.getDate() - 30)
-    console.log(this.prevDate.getDate())
+    this.prevDate2 = this.dateObj2;
+    this.prevDate2.setDate(this.prevDate2.getDate() - 30)
+    console.log(this.prevDate2.getDate())
     // console.log(this.prevDate) 
 
-    if (this.prevDate.getMonth() + 1 < 10)
-      this.prevDateString = this.prevDate.getFullYear().toString() + '-0' + (this.prevDate.getMonth()+1).toString() + '-';
+    if (this.prevDate2.getMonth() + 1 < 10)
+      this.prevDateString2 = this.prevDate2.getFullYear().toString() + '-0' + (this.prevDate2.getMonth()+1).toString() + '-';
     else
-      this.prevDateString = this.prevDate.getFullYear().toString() + '-' + (this.prevDate.getMonth()+1).toString() + '-';
+      this.prevDateString2 = this.prevDate2.getFullYear().toString() + '-' + (this.prevDate2.getMonth()+1).toString() + '-';
 
-    if (this.prevDate.getDate() < 10)
-      this.prevDateString += '0' + this.prevDate.getDate().toString() + 'T00:00:00';
+    if (this.prevDate2.getDate() < 10)
+      this.prevDateString2 += '0' + this.prevDate2.getDate().toString() + 'T00:00:00';
     else
-      this.prevDateString += this.prevDate.getDate().toString() + 'T00:00:00';
+      this.prevDateString2 += this.prevDate2.getDate().toString() + 'T00:00:00';
     
     // console.log(this.prevDateString)
 
