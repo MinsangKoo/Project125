@@ -1,9 +1,9 @@
-import { Averages, Person, sleep_day } from './classes';
+import { Averages, Person, sleep_day } from '../../classes';
 
 let p1 = new Person(1, 'm');
 let s = new sleep_day(1, 1, 1, 1);
 
-export function calculate_sleepscore(person: Person) {
+function calculate_sleepscore(person: Person) {
   //Retrieves the averages associated with this persons gender and age
   let a1 = new Averages(p1);
 

@@ -1,20 +1,51 @@
 <ion-content>
-  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; align-items: center; font-size:36px; padding-top:35%; padding-bottom:5%; color: #ffffff">
+  <div
+    style="
+      height: 100;
+      flex-flow: column-reverse;
+      display: flex;
+      align-items: top;
+      align-items: center;
+      font-size: 36px;
+      padding-top: 35%;
+      padding-bottom: 5%;
+      color: #ffffff;
+    "
+  >
     My Sleep Assistant
   </div>
 
-  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+  <div
+    style="
+      height: 100;
+      flex-flow: column-reverse;
+      display: flex;
+      align-items: top;
+      justify-content: center;
+    "
+  >
     <ion-card>
       <ion-item>
-        <ion-textarea placeholder="Your name:"></ion-textarea>
+        <ion-textarea
+          [(ngmodel)]="name"
+          placeholder="Your name:"
+        ></ion-textarea>
       </ion-item>
     </ion-card>
   </div>
 
-  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+  <div
+    style="
+      height: 100;
+      flex-flow: column-reverse;
+      display: flex;
+      align-items: top;
+      justify-content: center;
+    "
+  >
     <ion-card>
       <ion-item>
-        <ion-select placeholder="Gender">
+        <ion-select [(ngmodel)]="gender" placeholder="Gender">
           <ion-select-option value="Male">Male</ion-select-option>
           <ion-select-option value="Female">Female</ion-select-option>
           <ion-select-option value="Other">Other</ion-select-option>
@@ -23,12 +54,35 @@
     </ion-card>
   </div>
 
-  <div style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; justify-content: center;">
+  <div
+    style="
+      height: 100;
+      flex-flow: column-reverse;
+      display: flex;
+      align-items: top;
+      justify-content: center;
+    "
+  >
     <ion-card>
-      <ion-card-content style="height: 100; flex-flow: column-reverse; display: flex; align-items: top; align-items: center; font-size:22px">
+      <ion-card-content
+        style="
+          height: 100;
+          flex-flow: column-reverse;
+          display: flex;
+          align-items: top;
+          align-items: center;
+          font-size: 22px;
+        "
+      >
         Birthday
       </ion-card-content>
-      <ion-datetime presentation="date" [value]=currentDateString [min]="prevDateString" [max]="currentDateString">
+      <ion-datetime
+        [(ngmodel)]="birthday"
+        presentation="date"
+        [value]="currentDateString"
+        [min]="prevDateString"
+        [max]="currentDateString"
+      >
       </ion-datetime>
     </ion-card>
   </div>
@@ -37,14 +91,17 @@
     <ion-grid>
       <ion-row>
         <ion-col> </ion-col>
-        
+
         <ion-col>
-          <ion-button expand="block" routerLink="/pages/Initial_Availability/initial-availability">Next</ion-button>
+          <ion-button
+            expand="block"
+            routerLink="/pages/Initial_Availability/initial-availability"
+            >Next</ion-button
+          >
         </ion-col>
-        
+
         <ion-col> </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-
 </ion-content>

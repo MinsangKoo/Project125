@@ -1,18 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="font-size:28px">Connect Smartwatch</ion-title>
+    <ion-title style="font-size: 28px">Connect Smartwatch</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <div style="padding-top: 3%">
     <ion-card>
       <ion-card-content>
         <strong>Email</strong>
       </ion-card-content>
       <ion-item>
-        <ion-input placeholder="Enter Email"></ion-input>
+        <ion-input [(ngmodel)]="email" placeholder="Enter Email"></ion-input>
       </ion-item>
     </ion-card>
   </div>
@@ -23,33 +22,40 @@
         <strong>Password</strong>
       </ion-card-content>
       <ion-item>
-        <ion-input placeholder="Enter Password"></ion-input>
+        <ion-input
+          [(ngmodel)]="password"
+          placeholder="Enter Password"
+        ></ion-input>
       </ion-item>
     </ion-card>
   </div>
 
-  <div style="padding-top:2%">
-      <ion-button expand ="block">Apply</ion-button>
+  <div style="padding-top: 2%">
+    <ion-button expand="block">Apply</ion-button>
   </div>
 
   <!-- <div style="position:fixed; left:0; right:0; bottom:0">
     <ion-button expand ="block" routerLink="/pages/Settings/settings">Return</ion-button>
   </div> -->
-  
-
 </ion-content>
 
 <div>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button expand="block" routerLink="/pages/Initial_Availability/initial-availability">Back</ion-button>
+        <ion-button
+          expand="block"
+          routerLink="/pages/Initial_Availability/initial-availability"
+          >Back</ion-button
+        >
       </ion-col>
-      
+
       <ion-col> </ion-col>
-      
+
       <ion-col>
-        <ion-button expand="block" routerLink="/pages/Sleep_Stats/sleep-stats">Next</ion-button>
+        <ion-button expand="block" routerLink="/pages/Sleep_Stats/sleep-stats"
+          >Next</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>
