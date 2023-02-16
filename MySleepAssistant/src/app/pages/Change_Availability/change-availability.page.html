@@ -1,257 +1,273 @@
 <ion-content>
-
-  Monday
-  <ion-card>
-    <div>
-
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-          <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
-
-    </div>
-  </ion-card>
-
   <br>
-  Tuesday
-  <ion-card>
-    <div>
+  <div style="padding-top:5%">
+    <ion-text style="font-size:36px; text-align: center; color: #ffffff">
+      <p>
+        Change your sleep availability
+      </p>
+    </ion-text>
+  </div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
+  <ion-text class="inner-text">Monday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
           <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
 
-    </div>
-  </ion-card>
-
+      </ion-row>
+    </ion-grid>
+  </div>
   <br>
-  Wednesday
-  <ion-card>
-    <div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
+  <ion-text class="inner-text">Tuesday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
           <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
 
-    </div>
-  </ion-card>
-
+      </ion-row>
+    </ion-grid>
+  </div>
   <br>
-  Thursday
-  <ion-card>
-    <div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
+  <ion-text class="inner-text">Wednesday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
           <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
 
-    </div>
-  </ion-card>
-
+      </ion-row>
+    </ion-grid>
+  </div>
   <br>
-  Friday
-  <ion-card>
-    <div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
+  <ion-text class="inner-text">Thursday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
           <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
 
-    </div>
-  </ion-card>
-
+      </ion-row>
+    </ion-grid>
+  </div>
   <br>
-  Saturday
-  <ion-card>
-    <div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
+  <ion-text class="inner-text">Friday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
           <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
 
-    </div>
-  </ion-card>
-
+      </ion-row>
+    </ion-grid>
+  </div>
   <br>
-  Sunday
-  <ion-card>
-    <div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="p.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
+  <ion-text class="inner-text">Saturday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
           <ion-col> </ion-col>
-          <ion-row>
-            <ion-col>
-              <ion-input placeholder="Ex. 12:00"></ion-input>
-            </ion-col>
-            <ion-col>
-              <ion-select placeholder="a.m.">
-                <ion-select-option value="am">a.m.</ion-select-option>
-                <ion-select-option value="pm">p.m.</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-row>
-      </ion-grid>
 
-    </div>
-  </ion-card>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <br>
+
+  <ion-text class="inner-text">Sunday</ion-text>
+  <div>
+    <ion-grid>
+      <ion-row>
+
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+
+          </ion-col>
+
+          <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <br>
+          </ion-col>
+
+          <ion-col> </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
 
 </ion-content>
+
 
 <div>
   <ion-grid>
