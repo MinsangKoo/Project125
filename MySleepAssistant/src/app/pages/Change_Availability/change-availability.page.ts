@@ -9,6 +9,20 @@ import { ActivatedRoute } from '@angular/router';
 export class ChangeAvailabilityPage implements OnInit {
 
   public folder!: string;
+  public mondayStart = "";
+  public mondayEnd = "";
+  public tuesdayStart = "";
+  public tuesdayEnd = "";
+  public wednesdayStart = "";
+  public wednesdayEnd = "";
+  public thursdayStart = "";
+  public thursdayEnd = "";
+  public fridayStart = "";
+  public fridayEnd = "";
+  public saturdayStart = "";
+  public saturdayEnd = "";
+  public sundayStart = "";
+  public sundayEnd = "";
 
   constructor(private activatedRoute: ActivatedRoute) { }
 

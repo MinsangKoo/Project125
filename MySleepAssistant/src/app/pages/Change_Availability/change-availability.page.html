@@ -8,17 +8,19 @@
     </ion-text>
   </div>
 
+  <br>
+
   <ion-text class="inner-text">Monday</ion-text>
   <div>
     <ion-grid>
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="mondayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="mondayStart" style="color: black" id="mondayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -28,11 +30,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="mondayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="mondayEnd" style="color: black" id="mondayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -51,11 +53,11 @@
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="tuesdayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="tuesdayStart" style="color: black" id="tuesdayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -65,11 +67,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="tuesdayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="tuesdayEnd" style="color: black" id="tuesdayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -88,11 +90,11 @@
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="wednesdayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="wednesdayStart" style="color: black" id="wednesdayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -102,11 +104,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="wednesdayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="wednesdayEnd" style="color: black" id="wednesdayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -125,11 +127,11 @@
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="thursdayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="thursdayStart" style="color: black" id="thursdayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -139,11 +141,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="thursdayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="thursdayEnd" style="color: black" id="thursdayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -162,11 +164,11 @@
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="fridayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="fridayStart" style="color: black" id="fridayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -176,11 +178,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="fridayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="fridayEnd" style="color: black" id="fridayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -199,11 +201,11 @@
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="saturdayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="saturdayStart" style="color: black" id="saturdayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -213,11 +215,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="saturdayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="saturdayEnd" style="color: black" id="saturdayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -236,11 +238,11 @@
       <ion-row>
 
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="sundayStart"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="sundayStart" style="color: black" id="sundayStart" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
@@ -250,11 +252,11 @@
           <ion-col style="text-align: center; font-weight: bold; color: black">__</ion-col>
           
           <ion-col>
-            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-datetime-button datetime="sundayEnd"></ion-datetime-button>
 
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime style="color: black" id="datetime" presentation="time"></ion-datetime>
+                <ion-datetime [(ngModel)]="sundayEnd" style="color: black" id="sundayEnd" presentation="time"></ion-datetime>
               </ng-template>
             </ion-modal>
             <br>
