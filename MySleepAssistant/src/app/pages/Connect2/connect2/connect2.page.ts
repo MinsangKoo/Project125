@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Connect2Page implements OnInit {
 
+  // Input variables
+  public email = '';
+  public password = '';
+
   constructor() { }
+
+  public applyPushed() {
+    console.log("Settings applied in connect2");
+  }
 
   ngOnInit() {
   }

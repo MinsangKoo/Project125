@@ -12,7 +12,7 @@
         <strong>Email</strong>
       </ion-card-content>
       <ion-item>
-        <ion-input placeholder="Enter Email"></ion-input>
+        <ion-input [(ngModel)]="email" placeholder="Enter Email"></ion-input>
       </ion-item>
     </ion-card>
   </div>
@@ -23,13 +23,13 @@
         <strong>Password</strong>
       </ion-card-content>
       <ion-item>
-        <ion-input placeholder="Enter Password"></ion-input>
+        <ion-input [(ngModel)]="password" placeholder="Enter Password"></ion-input>
       </ion-item>
     </ion-card>
   </div>
 
   <div style="padding-top:2%">
-      <ion-button expand ="block">Apply</ion-button>
+      <ion-button (click)="applyPushed()" expand ="block">Apply</ion-button>
   </div>
 
   <div style="position:fixed; left:0; right:0; bottom:0">
