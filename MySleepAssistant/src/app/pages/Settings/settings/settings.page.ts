@@ -10,6 +10,10 @@ export class SettingsPage implements OnInit {
 
   public folder!: string;
 
+  // Our input variables
+  public name = '';
+  public gender = '';
+
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

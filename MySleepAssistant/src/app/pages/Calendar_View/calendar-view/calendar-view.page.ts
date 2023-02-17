@@ -12,8 +12,16 @@ export class CalendarViewPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
+
+  public seeWeekView() {
+    console.log("Seeing week view");
+  }
+
+  public seeMonthView() {
+    console.log("Seeing month view");
+  }
+
   ngOnInit() {
-    // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
 
 }

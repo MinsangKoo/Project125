@@ -11,5 +11,9 @@ export class ConnectPage implements OnInit {
 
   constructor() {}
 
+  public applyPushed() {
+    console.log("Settings applied in connect1");
+  }
+
   ngOnInit() {}
 }

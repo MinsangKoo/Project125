@@ -33,8 +33,8 @@ export class SleepStatsPage implements OnInit {
     p.addDay(s);
     let t = sleep_algo.calculate_sleepscore(p);
 
-    // console.log(t);
-    console.log('hello');
+    console.log(t);
+    // console.log('hello');
 
     if (this.dateObj2.getMonth() + 1 < 10)
       this.currentDateString2 =
@@ -58,7 +58,7 @@ export class SleepStatsPage implements OnInit {
 
     this.prevDate2 = this.dateObj2;
     this.prevDate2.setDate(this.prevDate2.getDate() - 30);
-    console.log(this.prevDate2.getDate());
+    // console.log(this.prevDate2.getDate());
     // console.log(this.prevDate)
 
     if (this.prevDate2.getMonth() + 1 < 10)

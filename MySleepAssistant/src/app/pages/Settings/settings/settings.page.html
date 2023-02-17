@@ -17,7 +17,7 @@
         <strong>Name</strong>
       </ion-card-content>
       <ion-item>
-        <ion-input style="width:50%" placeholder="Enter Name"></ion-input>
+        <ion-input [(ngModel)]="name" style="width:50%" placeholder="Enter Name"></ion-input>
       </ion-item>
     </ion-card>
   </div>
@@ -29,7 +29,7 @@
         <strong>Gender</strong>
       </ion-card-content>
       <ion-item>
-        <ion-select placeholder="Choose Gender">
+        <ion-select [(ngModel)]="gender" placeholder="Choose Gender">
           <ion-select-option value="Male">Male</ion-select-option>
           <ion-select-option value="Female">Female</ion-select-option>
           <ion-select-option value="Other">Other</ion-select-option>
