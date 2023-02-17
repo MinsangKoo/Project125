@@ -43,7 +43,7 @@ export class SignUpPage implements OnInit {
     this.prevDate = this.dateObj;
     this.prevDate.setDate(this.prevDate.getDate() - 30);
     this.prevDate.setFullYear(this.dateObj.getFullYear() - 100);
-    console.log(this.prevDate.getDate());
+    // console.log(this.prevDate.getDate());
     // console.log(this.prevDate)
 
     if (this.prevDate.getMonth() + 1 < 10)

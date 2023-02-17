@@ -13,7 +13,7 @@ const avg_genZ_deep = 17;
 const avg_genZ_light = 50;
 const avg_genZ_rem = 21;
 const avg_genZ_bedtime = new Date();
-console.log(avg_genZ_bedtime.getTime());
+// console.log(avg_genZ_bedtime.getTime());
 const avg_mil_sleepduration = 400;
 const avg_mil_deep = 16;
 const avg_mil_light = 51;
