@@ -60,9 +60,11 @@ export function calculate_sleepscore(person: Person) {
     (avg_sleeptime - Math.abs(avg_sleeptime - cur_sleeptime)) / avg_sleeptime;
 
   var bedtime_score =
-    time_diff(avg_bedtime, cur_bedtime) / time_to_minute(avg_bedtime);
+    (time_to_minute(avg_bedtime) - time_diff(avg_bedtime, cur_bedtime)) /
+    time_to_minute(avg_bedtime);
   var wakeup_score =
-    time_diff(avg_wakeup, cur_wakeup) / time_to_minute(avg_wakeup);
+    (time_to_minute(avg_wakeup) - time_diff(avg_wakeup, cur_wakeup)) /
+    time_to_minute(avg_wakeup);
 
   var sleep_score =
     (deep_score +
