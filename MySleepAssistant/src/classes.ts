@@ -29,7 +29,10 @@ It includes their deep, light, rem sleep, sleep duration, what time they go to b
 and how much caffeine they had during that day.
 
 For caffeine specifically, if they drank any sort of caffeine more than 6 hours before, caffeine will
-default to 0 in the constructor. If it was less than 6 hours, pass the amount of cups they drank as the 
+default to 0 in the constructor. You can either leave out the caffeine when constructing an object or 
+pass in 0.
+
+If it was less than 6 hours, pass the amount of cups they drank as the 
 last parameter. 
 */
 export class sleep_day {
