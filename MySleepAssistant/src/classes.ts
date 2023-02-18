@@ -76,13 +76,18 @@ The person class keeps track of "age", "gender", and an array containing "sleep_
 It will keep track of the 30 most recent sleep_data. To push into the array, call addDay(sleep_data)
 */
 export class Person {
+  name: string;
   age: number;
   gender: string;
   sleep_data: sleep_day[];
-  constructor(a: number, g: string) {
+  constructor(n: string, a: number, g: string) {
+    this.name = n;
     this.age = a;
     this.gender = g;
     this.sleep_data = [];
+  }
+  getName() {
+    return this.name;
   }
   getAge() {
     return this.age;
