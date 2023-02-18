@@ -25,13 +25,16 @@ export class sleep_day {
   sleepduration: number;
   bedtime: time;
   wakeup: time;
-  constructor(d: number, l: number, r: number, s: number, b: time, w: time) {
+  caffeine: number;
+  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0
+  ) {
     this.deep = d;
     this.light = l;
     this.rem = r;
     this.sleepduration = s;
     this.bedtime = b;
     this.wakeup = w;
+    this.caffeine = c;
   }
   getDeep() {
     return this.deep;
@@ -50,6 +53,9 @@ export class sleep_day {
   }
   getWakeUp() {
     return this.wakeup;
+  }
+  getCaffeine() {
+    return this.caffeine;
   }
 }
 
