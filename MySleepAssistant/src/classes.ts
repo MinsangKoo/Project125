@@ -1,42 +1,37 @@
-//constants taken from https://blog.fitbit.com/sleep-study/
-const avg_m_deep = 15;
-const avg_m_light = 52;
-const avg_m_rem = 21;
-const avg_m_sleeptime = 386;
-const avg_f_deep = 15;
-const avg_f_light = 52;
-const avg_f_rem = 22;
-const avg_f_sleeptime = 410;
-
-const avg_genZ_sleepduration = 417;
-const avg_genZ_deep = 17;
-const avg_genZ_light = 50;
-const avg_genZ_rem = 21;
-const avg_genZ_bedtime = new Date();
-// console.log(avg_genZ_bedtime.getTime());
-const avg_mil_sleepduration = 400;
-const avg_mil_deep = 16;
-const avg_mil_light = 51;
-const avg_mil_rem = 21;
-const avg_genX_sleepduration = 394;
-const avg_genX_deep = 15;
-const avg_genX_light = 52;
-const avg_genX_rem = 21;
-const avg_boom_sleepduration = 393;
-const avg_boom_deep = 13;
-const avg_boom_light = 54;
-const avg_boom_rem = 21;
+export class time {
+  hour: number;
+  minute: number;
+  l: string;
+  constructor(h: number, m: number, l: string) {
+    this.hour = h;
+    this.minute = m;
+    this.l = l;
+  }
+  getMinutes() {
+    return this.minute;
+  }
+  getHours() {
+    return this.hour;
+  }
+  getName() {
+    return this.l;
+  }
+}
 
 export class sleep_day {
   deep: number;
   light: number;
   rem: number;
   sleepduration: number;
-  constructor(d: number, l: number, r: number, s: number) {
+  bedtime: time;
+  wakeup: time;
+  constructor(d: number, l: number, r: number, s: number, b: time, w: time) {
     this.deep = d;
     this.light = l;
     this.rem = r;
     this.sleepduration = s;
+    this.bedtime = b;
+    this.wakeup = w;
   }
   getDeep() {
     return this.deep;
@@ -49,6 +44,12 @@ export class sleep_day {
   }
   getSleeptime() {
     return this.sleepduration;
+  }
+  getBedtime() {
+    return this.bedtime;
+  }
+  getWakeUp() {
+    return this.wakeup;
   }
 }
 
@@ -77,6 +78,7 @@ export class Person {
     }
   }
 }
+
 export class Averages {
   age: number;
   gender: string;
@@ -160,4 +162,64 @@ export class Averages {
     }
     return (temp1 + temp2) / 2;
   }
+  get_avg_bedtime() {
+    if (this.age >= 11 && this.age < 26) {
+      return avg_genZ_bedtime;
+    } else if (this.age >= 27 && this.age < 42) {
+      return avg_mil_bedtime;
+    } else if (this.age >= 43 && this.age < 58) {
+      return avg_genX_bedtime;
+    } else {
+      return avg_boom_bedtime;
+    }
+  }
+  get_avg_wakeup() {
+    if (this.age >= 11 && this.age < 26) {
+      return avg_genZ_wakeup;
+    } else if (this.age >= 27 && this.age < 42) {
+      return avg_mil_wakeup;
+    } else if (this.age >= 43 && this.age < 58) {
+      return avg_genX_wakeup;
+    } else {
+      return avg_boom_wakeup;
+    }
+  }
 }
+
+//constants taken from https://blog.fitbit.com/sleep-study/
+const avg_m_deep = 15;
+const avg_m_light = 52;
+const avg_m_rem = 21;
+const avg_m_sleeptime = 386;
+const avg_f_deep = 15;
+const avg_f_light = 52;
+const avg_f_rem = 22;
+const avg_f_sleeptime = 410;
+
+const avg_genZ_sleepduration = 417;
+const avg_genZ_deep = 17;
+const avg_genZ_light = 50;
+const avg_genZ_rem = 21;
+const avg_genZ_bedtime = new time(12, 8, 'am');
+const avg_genZ_wakeup = new time(8, 12, 'am');
+
+const avg_mil_sleepduration = 400;
+const avg_mil_deep = 16;
+const avg_mil_light = 51;
+const avg_mil_rem = 21;
+const avg_mil_bedtime = new time(11, 45, 'pm');
+const avg_mil_wakeup = new time(7, 28, 'am');
+
+const avg_genX_sleepduration = 394;
+const avg_genX_deep = 15;
+const avg_genX_light = 52;
+const avg_genX_rem = 21;
+const avg_genX_bedtime = new time(11, 25, 'pm');
+const avg_genX_wakeup = new time(7, 0, 'am');
+
+const avg_boom_sleepduration = 393;
+const avg_boom_deep = 13;
+const avg_boom_light = 54;
+const avg_boom_rem = 21;
+const avg_boom_bedtime = new time(11, 17, 'pm');
+const avg_boom_wakeup = new time(6, 53, 'am');
