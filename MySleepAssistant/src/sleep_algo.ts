@@ -31,9 +31,19 @@ function time_diff(time1: time, time2: time) {
 
   return 720 - Math.abs(720 - Math.abs(total_time1 - total_time2));
 }
+
+
 function calc_caffeine_score(c: number) {
   return Math.max(0, 1 - (.2 * c))
 }
+
+/*
+when calculating sleep_scores, you will only need to know how to use 2 classes.
+  1) Call p1 = new Person(22, 'm')
+  2) Call day = new sleep_day(deep, light, rem, sleep_duration, bedtime, wakeup, caffeine_intake(default to 0))
+  3) Call p1.addDay(day)
+  4) Call calculate_sleep_score(p1)
+*/
 export function calculate_sleepscore(person: Person) {
   //Retrieves the averages associated with this persons gender and age
   let a1 = new Averages(person);

@@ -1,3 +1,9 @@
+/*
+The time class takes in "hour", "minute", and either AM or PM. 
+All the functions in the sleep_algo class relating to the time class, you don't
+need to understand the implementation. Just create a time object when creating a 
+sleep_data object.
+*/
 export class time {
   hour: number;
   minute: number;
@@ -17,7 +23,15 @@ export class time {
     return this.l;
   }
 }
+/*
+The sleep_day class represents all the data within a single day that the user records.
+It includes their deep, light, rem sleep, sleep duration, what time they go to bed and wake up
+and how much caffeine they had during that day.
 
+For caffeine specifically, if they drank any sort of caffeine more than 6 hours before, caffeine will
+default to 0 in the constructor. If it was less than 6 hours, pass the amount of cups they drank as the 
+last parameter. 
+*/
 export class sleep_day {
   deep: number;
   light: number;
@@ -26,8 +40,7 @@ export class sleep_day {
   bedtime: time;
   wakeup: time;
   caffeine: number;
-  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0
-  ) {
+  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0) {
     this.deep = d;
     this.light = l;
     this.rem = r;
@@ -58,7 +71,10 @@ export class sleep_day {
     return this.caffeine;
   }
 }
-
+/*
+The person class keeps track of "age", "gender", and an array containing "sleep_days".
+It will keep track of the 30 most recent sleep_data. To push into the array, call addDay(sleep_data)
+*/
 export class Person {
   age: number;
   gender: string;
@@ -78,13 +94,18 @@ export class Person {
     return this.sleep_data[0];
   }
   addDay(s: sleep_day) {
-    this.sleep_data.splice(0, 0, s);
-    if (this.sleep_data.length > 31) {
-      this.sleep_data.splice(0, 1);
+    this.sleep_data.unshift(s)
+    if (this.sleep_data.length > 30) {
+      this.sleep_data.splice(0, 31);
     }
   }
 }
 
+/*
+The averages class takes in a person object into the constructor. It returns the averages associated
+with that specific persons age and gender. For example, if person is a 22 year old male, the 
+get_averages functions will return averages associated with genZ males.
+*/
 export class Averages {
   age: number;
   gender: string;
