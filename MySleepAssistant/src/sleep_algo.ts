@@ -72,7 +72,6 @@ export function calculate_sleepscore(person: Person) {
   var caffeine_score = calc_caffeine_score(cur_caffeine);
 
   var sleep_score =
-    (deep_score + light_score + rem_score + sleeptime_score + bedtime_score + wakeup_score) *
-    (100 / 6);
+    (deep_score + light_score + rem_score + sleeptime_score + bedtime_score + wakeup_score + caffeine_score) * (100 / 7);
   return sleep_score;
 }
