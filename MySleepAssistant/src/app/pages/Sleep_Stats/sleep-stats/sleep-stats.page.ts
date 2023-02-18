@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Person, Averages, sleep_day } from '../../../../classes';
+import { Person, Averages, sleep_day, time } from '../../../../classes';
 import * as sleep_algo from '../../../../sleep_algo';
 
 ///MySleepAssistant/src/classes.ts
@@ -28,8 +28,10 @@ export class SleepStatsPage implements OnInit {
 
   ngOnInit() {
     // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    var p = new Person(22, 'm');
-    var s = new sleep_day(15, 50, 35, 360);
+    var p = new Person("John", 22, 'm');
+    var btime = new time(12, 0, "AM")
+    var wtime = new time(9, 0, "AM")
+    var s = new sleep_day(15, 50, 35, 360, btime, wtime);
     p.addDay(s);
     let t = sleep_algo.calculate_sleepscore(p);
 
