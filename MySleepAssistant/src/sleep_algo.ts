@@ -38,9 +38,10 @@ function calc_caffeine_score(c: number) {
 }
 
 /*
-when calculating sleep_scores, you will only need to know how to use 2 classes.
+when calculating sleep_scores, you will need to know how to use 3 classes.
   1) Call p1 = new Person(22, 'm')
-  2) Call day = new sleep_day(deep, light, rem, sleep_duration, bedtime, wakeup, caffeine_intake(default to 0))
+  2) Call bedtime/wakeup = new time(12, 0, 'am')
+  2) Call day = new sleep_day(deep, light, rem, sleep_duration, bedtime, wakeup, caffeine_intake = default to 0)
   3) Call p1.addDay(day)
   4) Call calculate_sleep_score(p1)
 */

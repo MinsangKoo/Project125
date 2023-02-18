@@ -77,6 +77,11 @@ export class sleep_day {
 /*
 The person class keeps track of "age", "gender", and an array containing "sleep_days".
 It will keep track of the 30 most recent sleep_data. To push into the array, call addDay(sleep_data)
+
+If you want to get the most recent day, you can call person.getCurDay(). If you want to grab a 
+specific date, call person.getDay(v) where v is how many days ago it was. 
+For example, person.getDay(0) returns the most recent day
+person.getDay(5) returns 5 days ago.
 */
 export class Person {
   name: string;
@@ -100,6 +105,9 @@ export class Person {
   }
   getCurDay() {
     return this.sleep_data[0];
+  }
+  getDay(c: number) {
+    return this.sleep_data[c];
   }
   addDay(s: sleep_day) {
     this.sleep_data.unshift(s)
