@@ -32,6 +32,19 @@ function time_diff(time1: time, time2: time) {
   return 720 - Math.abs(720 - Math.abs(total_time1 - total_time2));
 }
 
+
+function calc_caffeine_score(c: number) {
+  return Math.max(0, 1 - (.2 * c))
+}
+
+/*
+when calculating sleep_scores, you will need to know how to use 3 classes.
+  1) Call p1 = new Person(22, 'm')
+  2) Call bedtime/wakeup = new time(12, 0, 'am')
+  2) Call day = new sleep_day(deep, light, rem, sleep_duration, bedtime, wakeup, caffeine_intake = default to 0)
+  3) Call p1.addDay(day)
+  4) Call calculate_sleep_score(p1)
+*/
 export function calculate_sleepscore(person: Person) {
   //Retrieves the averages associated with this persons gender and age
   let a1 = new Averages(person);
@@ -44,6 +57,7 @@ export function calculate_sleepscore(person: Person) {
   var cur_sleeptime = day.getSleeptime();
   var cur_bedtime = day.getBedtime();
   var cur_wakeup = day.getWakeUp();
+  var cur_caffeine = day.getCaffeine();
 
   //Averages associated with this specific person only
   var avg_deep = a1.get_avg_deep();
@@ -66,13 +80,9 @@ export function calculate_sleepscore(person: Person) {
     (time_to_minute(avg_wakeup) - time_diff(avg_wakeup, cur_wakeup)) /
     time_to_minute(avg_wakeup);
 
+  var caffeine_score = calc_caffeine_score(cur_caffeine);
+
   var sleep_score =
-    (deep_score +
-      light_score +
-      rem_score +
-      sleeptime_score +
-      bedtime_score +
-      wakeup_score) *
-    (100 / 6);
+    (deep_score + light_score + rem_score + sleeptime_score + bedtime_score + wakeup_score + caffeine_score) * (100 / 7);
   return sleep_score;
 }

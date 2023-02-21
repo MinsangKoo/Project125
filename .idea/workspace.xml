@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="22715f48-93f4-4c29-8f56-2315496cebf1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySleepAssistant/src/sleep_algo.js" beforeDir="false" afterPath="$PROJECT_DIR$/MySleepAssistant/src/sleep_algo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySleepAssistant/src/app/pages/Sign_Up/sign-up/sign-up.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/MySleepAssistant/src/app/pages/Sign_Up/sign-up/sign-up.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySleepAssistant/src/app/pages/Sign_Up/sign-up/sign-up.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/MySleepAssistant/src/app/pages/Sign_Up/sign-up/sign-up.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySleepAssistant/src/app/pages/Sleep_Stats/sleep-stats/sleep-stats.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/MySleepAssistant/src/app/pages/Sleep_Stats/sleep-stats/sleep-stats.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,20 +26,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\epicb\\WebstormProjects\\Project125\\MySleepAssistant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

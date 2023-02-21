@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { Person } from '../../../../classes';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,6 +20,17 @@ export class SignUpPage implements OnInit {
   public birthday = '';
 
   constructor() {}
+
+  createPerson() {
+    var name = this.name
+    var birthdate = new Date(this.birthday)
+    let timeDiff = Math.abs(Date.now() - birthdate.getTime());
+    let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
+    var gender = this.gender
+    let p = new Person(name, age, gender)
+    //alert(this.gender)
+    alert(p.getGender())
+  }
 
   ngOnInit() {
     if (this.dateObj.getMonth() + 1 < 10)
