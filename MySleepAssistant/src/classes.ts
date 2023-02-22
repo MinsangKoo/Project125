@@ -43,6 +43,9 @@ export class sleep_day {
   bedtime: time;
   wakeup: time;
   caffeine: number;
+  // ask them to store sleep score and sleep date for each sleep day
+
+
   constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0) {
     this.deep = d;
     this.light = l;
@@ -51,6 +54,7 @@ export class sleep_day {
     this.bedtime = b;
     this.wakeup = w;
     this.caffeine = c;
+
   }
   getDeep() {
     return this.deep;
@@ -73,6 +77,7 @@ export class sleep_day {
   getCaffeine() {
     return this.caffeine;
   }
+
 }
 /*
 The person class keeps track of "age", "gender", and an array containing "sleep_days".
@@ -88,11 +93,13 @@ export class Person {
   age: number;
   gender: string;
   sleep_data: sleep_day[];
+  sleep_availability: Map<string,time>
   constructor(n: string, a: number, g: string) {
     this.name = n;
     this.age = a;
     this.gender = g;
     this.sleep_data = [];
+    this.sleep_availability = new Map<string,time>();
   }
   getName() {
     return this.name;

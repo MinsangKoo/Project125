@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { Person } from '../../../../classes';
+import { PersonService } from '../../../../PersonService';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +20,7 @@ export class SignUpPage implements OnInit {
   public gender = '';
   public birthday = '';
 
-  constructor() {}
+  constructor(public personService: PersonService) {}
 
   createPerson() {
     var name = this.name
@@ -27,9 +28,15 @@ export class SignUpPage implements OnInit {
     let timeDiff = Math.abs(Date.now() - birthdate.getTime());
     let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
     var gender = this.gender
-    let p = new Person(name, age, gender)
+    
+    this.personService.setName(name)
+    this.personService.setAge(age)
+    this.personService.setGender(gender)
+
+
     //alert(this.gender)
-    alert(p.getGender())
+    // alert(p.getGender())
+    // console.log(name, gender, birthdate, age);
   }
 
   ngOnInit() {

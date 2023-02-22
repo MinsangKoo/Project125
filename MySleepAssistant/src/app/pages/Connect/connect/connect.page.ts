@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonService } from '../../../../PersonService';
 
 @Component({
   selector: 'app-connect',
@@ -9,11 +10,13 @@ export class ConnectPage implements OnInit {
   public email = '';
   public password = '';
 
-  constructor() {}
+  constructor(public personService: PersonService) {}
 
   public applyPushed() {
     console.log("Settings applied in connect1");
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.personService.getPerson().sleep_availability);
+  }
 }
