@@ -11,23 +11,23 @@ import { PersonService } from '../../../../PersonService';
 })
 export class InitialAvailabilityPage implements OnInit {
 
-  public folder!: string;
+  
   public title = "Welcome to My Sleep Assistant!";
   public message = "To help us better understand you, please tell us the range of hours in which you are typically at home and are able to sleep during.";
-  public mondayStart = "";
-  public mondayEnd = "";
-  public tuesdayStart = "";
-  public tuesdayEnd = "";
-  public wednesdayStart = "";
-  public wednesdayEnd = "";
-  public thursdayStart = "";
-  public thursdayEnd = "";
-  public fridayStart = "";
-  public fridayEnd = "";
-  public saturdayStart = "";
-  public saturdayEnd = "";
-  public sundayStart = "";
-  public sundayEnd = "";
+  public mondayStart = "2023-02-23T21:00:00-08:00";
+  public mondayEnd = "2023-02-23T08:00:00-08:00";
+  public tuesdayStart = "2023-02-23T21:00:00-08:00";
+  public tuesdayEnd = "2023-02-23T08:00:00-08:00";
+  public wednesdayStart = "2023-02-23T21:00:00-08:00";
+  public wednesdayEnd = "2023-02-23T08:00:00-08:00";
+  public thursdayStart = "2023-02-23T21:00:00-08:00";
+  public thursdayEnd = "2023-02-23T08:00:00-08:00";
+  public fridayStart = "2023-02-23T21:00:00-08:00";
+  public fridayEnd = "2023-02-23T08:00:00-08:00";
+  public saturdayStart = "2023-02-23T21:00:00-08:00";
+  public saturdayEnd = "2023-02-23T08:00:00-08:00";
+  public sundayStart = "2023-02-23T21:00:00-08:00";
+  public sundayEnd = "2023-02-23T08:00:00-08:00";
 
   constructor(private activatedRoute: ActivatedRoute, public personService: PersonService) { }
 
@@ -56,6 +56,7 @@ export class InitialAvailabilityPage implements OnInit {
   }
   
   public storeAvailability() {
+    console.log(this.mondayStart);
     // console.log(new Date(this.mondayStart).toLocaleTimeString());
 
     // var mondayStartDate = new Date(this.mondayStart);

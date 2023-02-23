@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PersonService } from 'src/PersonService';
 
 @Component({
   selector: 'app-settings',
@@ -14,10 +15,25 @@ export class SettingsPage implements OnInit {
   public name = '';
   public gender = '';
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, public personService: PersonService) { }
+
+
+  public settingsChanged() {
+    if (this.name) {
+      this.personService.setName(this.name);
+    }
+
+    if (this.gender) {
+      this.personService.setGender(this.gender);
+    }
+    
+    console.log(this.personService.getPerson().getName());
+    console.log(this.personService.getPerson().getGender());
+
+  }
 
   ngOnInit() {
-    // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+
   }
 
 }
