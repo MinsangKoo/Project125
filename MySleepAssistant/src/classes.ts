@@ -43,7 +43,11 @@ export class sleep_day {
   bedtime: time;
   wakeup: time;
   caffeine: number;
-  // ask them to store sleep score and sleep date for each sleep day
+  
+  //TODO:
+  // make a sleep_score variable
+  // make a sleep_date variable to hold the date of the sleep day
+  
 
 
   constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0) {
