@@ -57,7 +57,8 @@ export class InitialAvailabilityPage implements OnInit {
   
   public storeAvailability() {
     console.log(this.mondayStart);
-    // console.log(new Date(this.mondayStart).toLocaleTimeString());
+    console.log(new Date(this.mondayStart).toLocaleTimeString());
+    console.log(new Date('12:00:00 PM'));
 
     // var mondayStartDate = new Date(this.mondayStart);
     // let mondayStartHour = '';
