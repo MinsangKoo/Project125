@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Person, Averages, sleep_day, time } from '../../../../classes';
+import {Person, Averages, sleep_day, time, Date} from '../../../../classes';
 import * as sleep_algo from '../../../../sleep_algo';
 
 ///MySleepAssistant/src/classes.ts
@@ -12,8 +12,8 @@ import * as sleep_algo from '../../../../sleep_algo';
 export class SleepStatsPage implements OnInit {
   public folder!: string;
   public date = '2/23/2003';
-  public dateObj2 = new Date();
-  public prevDate2 = new Date();
+  public dateObj2 = new Date(1,10,2022);
+  public prevDate2 = new Date(1,9,2022);
   public sleep_score = 15;
   public sleep_reccomendation_text =
     'Go to sleep. This will improve the amount of deep and rem sleep that you get';
@@ -31,22 +31,23 @@ export class SleepStatsPage implements OnInit {
     var p = new Person("John", 22, 'm');
     var btime = new time(12, 0, "AM")
     var wtime = new time(9, 0, "AM")
-    var s = new sleep_day(15, 50, 35, 360, btime, wtime);
+    var date = new Date(12, 5, 2022)
+    var s = new sleep_day(15, 50, 35, 360, btime, wtime, 0, date);
     p.addDay(s);
-    let t = sleep_algo.calculate_sleepscore(p);
+    let t = sleep_algo.calculate_sleepscore(p, s);
 
     console.log(t);
     // console.log('hello');
-
+    /*
     if (this.dateObj2.getMonth() + 1 < 10)
       this.currentDateString2 =
-        this.dateObj2.getFullYear().toString() +
+        this.dateObj2.getYear().toString() +
         '-0' +
         (this.dateObj2.getMonth() + 1).toString() +
         '-';
     else
       this.currentDateString2 =
-        this.dateObj2.getFullYear().toString() +
+        this.dateObj2.getYear().toString() +
         '-' +
         (this.dateObj2.getMonth() + 1).toString() +
         '-';
@@ -65,13 +66,13 @@ export class SleepStatsPage implements OnInit {
 
     if (this.prevDate2.getMonth() + 1 < 10)
       this.prevDateString2 =
-        this.prevDate2.getFullYear().toString() +
+        this.prevDate2.getYear().toString() +
         '-0' +
         (this.prevDate2.getMonth() + 1).toString() +
         '-';
     else
       this.prevDateString2 =
-        this.prevDate2.getFullYear().toString() +
+        this.prevDate2.getYear().toString() +
         '-' +
         (this.prevDate2.getMonth() + 1).toString() +
         '-';
@@ -83,5 +84,6 @@ export class SleepStatsPage implements OnInit {
       this.prevDateString2 += this.prevDate2.getDate().toString() + 'T00:00:00';
 
     // console.log(this.prevDateString)
+    */
   }
 }
