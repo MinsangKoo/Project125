@@ -22,6 +22,10 @@ export class time {
   getName() {
     return this.l;
   }
+  getTime() { // returns the time in this format 12:00 PM 
+    return this.hour.toString() + ':' + this.minute.toString() + ' ' + this.l;
+  }
+
 }
 /*
 The sleep_day class represents all the data within a single day that the user records.
@@ -80,8 +84,6 @@ export class sleep_day {
   // make a sleep_score variable
   // make a sleep_date variable to hold the date of the sleep day
 
-
-
   constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0, date: Date) {
     this.deep = d;
     this.light = l;
@@ -125,6 +127,9 @@ export class sleep_day {
     this.sleep_score = s;
   }
 
+  // TODO 
+  // Make calculate sleep score method
+
 }
 /*
 The person class keeps track of "age", "gender", and an array containing "sleep_days".
@@ -163,12 +168,18 @@ export class Person {
   getDay(c: number) {
     return this.sleep_data[c];
   }
+  getSleepAvailability() {
+    return this.sleep_availability;
+  }
+
   addDay(s: sleep_day) {
     this.sleep_data.unshift(s)
     if (this.sleep_data.length > 30) {
       this.sleep_data.splice(0, 31);
     }
   }
+
+
 }
 
 /*
