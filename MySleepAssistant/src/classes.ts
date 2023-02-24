@@ -35,6 +35,26 @@ pass in 0.
 If it was less than 6 hours, pass the amount of cups they drank as the 
 last parameter. 
 */
+
+export class Date {
+  month: number;
+  day: number;
+  year: number;
+  constructor(m: number, d: number, y: number) {
+    this.month = m
+    this.day = d
+    this.year = y
+  }
+  getYear() {
+    return this.year
+  }
+  getMonth() {
+    return this.month
+  }
+  getDay() {
+    return this.day
+  }
+}
 export class sleep_day {
   deep: number;
   light: number;
@@ -43,14 +63,16 @@ export class sleep_day {
   bedtime: time;
   wakeup: time;
   caffeine: number;
-  
+  date: Date;
+  sleep_score: number;
+
   //TODO:
   // make a sleep_score variable
   // make a sleep_date variable to hold the date of the sleep day
-  
 
 
-  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0) {
+
+  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0, date: Date) {
     this.deep = d;
     this.light = l;
     this.rem = r;
@@ -58,6 +80,8 @@ export class sleep_day {
     this.bedtime = b;
     this.wakeup = w;
     this.caffeine = c;
+    this.date = date;
+    this.sleep_score = 0
 
   }
   getDeep() {
@@ -81,6 +105,15 @@ export class sleep_day {
   getCaffeine() {
     return this.caffeine;
   }
+  getDate() {
+    return this.date;
+  }
+  getSleepscore() {
+    return this.sleep_score;
+  }
+  setSleepscore(s: number) {
+    this.sleep_score = s;
+  }
 
 }
 /*
@@ -97,13 +130,13 @@ export class Person {
   age: number;
   gender: string;
   sleep_data: sleep_day[];
-  sleep_availability: Map<string,time>
+  sleep_availability: Map<string, time>
   constructor(n: string, a: number, g: string) {
     this.name = n;
     this.age = a;
     this.gender = g;
     this.sleep_data = [];
-    this.sleep_availability = new Map<string,time>();
+    this.sleep_availability = new Map<string, time>();
   }
   getName() {
     return this.name;
