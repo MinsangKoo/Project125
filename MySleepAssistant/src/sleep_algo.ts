@@ -41,16 +41,16 @@ function calc_caffeine_score(c: number) {
 when calculating sleep_scores, you will need to know how to use 3 classes.
   1) Call p1 = new Person(22, 'm')
   2) Call bedtime/wakeup = new time(12, 0, 'am')
-  2) Call day = new sleep_day(deep, light, rem, sleep_duration, bedtime, wakeup, caffeine_intake = default to 0)
-  3) Call p1.addDay(day)
-  4) Call calculate_sleep_score(p1)
+  3) date = new Date(month, day, year)
+  4) Call day = new sleep_day(deep, light, rem, sleep_duration, bedtime, wakeup, caffeine_intake = default to 0, date)
+  5) Call calculate_sleep_score(p1, day) //this will set the sleep_score for that day
+  6) Call p1.addDay(day)
 */
-export function calculate_sleepscore(person: Person) {
+export function calculate_sleepscore(person: Person, day: sleep_day) {
   //Retrieves the averages associated with this persons gender and age
   let a1 = new Averages(person);
 
   //Grabs the most recent sleep data of the person
-  var day = person.getCurDay();
   var cur_deep = day.getDeep();
   var cur_light = day.getLight();
   var cur_rem = day.getRem();
@@ -84,5 +84,6 @@ export function calculate_sleepscore(person: Person) {
 
   var sleep_score =
     (deep_score + light_score + rem_score + sleeptime_score + bedtime_score + wakeup_score + caffeine_score) * (100 / 7);
-  return sleep_score;
+
+  day.setSleepscore(sleep_score)
 }
