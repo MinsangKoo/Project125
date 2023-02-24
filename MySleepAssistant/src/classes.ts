@@ -54,6 +54,9 @@ export class Date {
   getDay() {
     return this.day
   }
+  printDate() {
+    return this.month + '/' + this.day
+  }
 }
 export class sleep_day {
   deep: number;
