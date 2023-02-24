@@ -1,7 +1,7 @@
 /*
-The time class takes in "hour", "minute", and either AM or PM. 
+The time class takes in "hour", "minute", and either AM or PM.
 All the functions in the sleep_algo class relating to the time class, you don't
-need to understand the implementation. Just create a time object when creating a 
+need to understand the implementation. Just create a time object when creating a
 sleep_data object.
 */
 export class time {
@@ -33,12 +33,42 @@ It includes their deep, light, rem sleep, sleep duration, what time they go to b
 and how much caffeine they had during that day.
 
 For caffeine specifically, if they drank any sort of caffeine more than 6 hours before, caffeine will
-default to 0 in the constructor. You can either leave out the caffeine when constructing an object or 
+default to 0 in the constructor. You can either leave out the caffeine when constructing an object or
 pass in 0.
 
-If it was less than 6 hours, pass the amount of cups they drank as the 
-last parameter. 
+If it was less than 6 hours, pass the amount of cups they drank as the
+last parameter.
 */
+
+export class Date {
+  month: number;
+  day: number;
+  year: number;
+  constructor(m: number, d: number, y: number) {
+    this.month = m
+    this.day = d
+    this.year = y
+  }
+  getYear() {
+    return this.year
+  }
+  getMonth() {
+    return this.month
+  }
+  getDay() {
+    return this.day
+  }
+
+  setDate(m: number, d: number, y: number) {
+    this.month = m
+    this.day = d
+    this.year = y
+  }
+
+  printDate() {
+    return this.month + '/' + this.day
+  }
+}
 export class sleep_day {
   deep: number;
   light: number;
@@ -47,14 +77,14 @@ export class sleep_day {
   bedtime: time;
   wakeup: time;
   caffeine: number;
-  
+  date: Date;
+  sleep_score: number;
+
   //TODO:
   // make a sleep_score variable
   // make a sleep_date variable to hold the date of the sleep day
 
-
-
-  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0) {
+  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0, date: Date) {
     this.deep = d;
     this.light = l;
     this.rem = r;
@@ -62,6 +92,8 @@ export class sleep_day {
     this.bedtime = b;
     this.wakeup = w;
     this.caffeine = c;
+    this.date = date;
+    this.sleep_score = 0
 
   }
   getDeep() {
@@ -85,6 +117,15 @@ export class sleep_day {
   getCaffeine() {
     return this.caffeine;
   }
+  getDate() {
+    return this.date;
+  }
+  getSleepscore() {
+    return this.sleep_score;
+  }
+  setSleepscore(s: number) {
+    this.sleep_score = s;
+  }
 
   // TODO 
   // Make calculate sleep score method
@@ -94,8 +135,8 @@ export class sleep_day {
 The person class keeps track of "age", "gender", and an array containing "sleep_days".
 It will keep track of the 30 most recent sleep_data. To push into the array, call addDay(sleep_data)
 
-If you want to get the most recent day, you can call person.getCurDay(). If you want to grab a 
-specific date, call person.getDay(v) where v is how many days ago it was. 
+If you want to get the most recent day, you can call person.getCurDay(). If you want to grab a
+specific date, call person.getDay(v) where v is how many days ago it was.
 For example, person.getDay(0) returns the most recent day
 person.getDay(5) returns 5 days ago.
 */
@@ -104,13 +145,13 @@ export class Person {
   age: number;
   gender: string;
   sleep_data: sleep_day[];
-  sleep_availability: Map<string,time>
+  sleep_availability: Map<string, time>
   constructor(n: string, a: number, g: string) {
     this.name = n;
     this.age = a;
     this.gender = g;
     this.sleep_data = [];
-    this.sleep_availability = new Map<string,time>();
+    this.sleep_availability = new Map<string, time>();
   }
   getName() {
     return this.name;
@@ -143,7 +184,7 @@ export class Person {
 
 /*
 The averages class takes in a person object into the constructor. It returns the averages associated
-with that specific persons age and gender. For example, if person is a 22 year old male, the 
+with that specific persons age and gender. For example, if person is a 22 year old male, the
 get_averages functions will return averages associated with genZ males.
 */
 export class Averages {
