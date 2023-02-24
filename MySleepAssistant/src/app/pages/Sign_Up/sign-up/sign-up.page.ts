@@ -79,4 +79,5 @@ export class SignUpPage implements OnInit {
     else
       this.prevDateString += this.prevDate.getDate().toString() + 'T00:00:00';
   }
+
 }
