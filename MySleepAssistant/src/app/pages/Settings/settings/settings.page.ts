@@ -28,7 +28,7 @@ export class SettingsPage implements OnInit {
       this.personService.setGender(this.gender);
     }
 
-    this.presentToast()
+    this.presentToast();
     console.log(this.personService.getPerson().getName());
     console.log(this.personService.getPerson().getGender());
 

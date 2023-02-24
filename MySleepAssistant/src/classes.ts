@@ -54,12 +54,14 @@ export class Date {
   getDay() {
     return this.day
   }
+
   setDate(m: number, d: number, y: number) {
     this.month = m
     this.day = d
     this.year = y
   }
-  getDate() {
+
+  printDate() {
     return this.month + '/' + this.day
   }
 }
