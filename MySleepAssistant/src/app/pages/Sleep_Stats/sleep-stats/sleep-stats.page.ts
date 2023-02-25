@@ -28,6 +28,7 @@ export class SleepStatsPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
+  // This function makes it so that the user can only select dates in the last 30 days
   setDateCalenderMinMax() {
     if (this.dateObj2.getMonth() + 1 < 10)
       this.currentDateString2 =
@@ -74,9 +75,17 @@ export class SleepStatsPage implements OnInit {
       this.prevDateString2 += this.prevDate2.getDate().toString() + 'T00:00:00';
   }
 
+ // This function is called whenever the user changes the date
   changeSelectedDate() {
-    console.log(this.currentDateString2);
-    console.log(this.selectedDateString);
+    TODO: // Change all the information on this page to reflect the data in the date that the user changed to
+
+    // Retrieve our person from the PersonService
+    // Get the sleep day object pertaining to the date that they selected on the calendar
+    // Update all the information on this page
+    
+    // console.log(this.currentDateString2);
+    // console.log(this.selectedDateString);
+    return;
   }
 
   ngOnInit() {
