@@ -140,19 +140,38 @@ specific date, call person.getDay(v) where v is how many days ago it was.
 For example, person.getDay(0) returns the most recent day
 person.getDay(5) returns 5 days ago.
 */
+
+let KEYNAMES = ["mondayStart", "mondayEnd",
+                "tuesdayStart", "tuesdayEnd",
+                "wednesdayStart", "wednesdayEnd",
+                "thursdayStart", "thursdayEnd",
+                "fridayStart", "fridayEnd",
+                "saturdayStart", "saturdayEnd",
+                "sundayStart", "sundayEnd"];
+
 export class Person {
   name: string;
   age: number;
   gender: string;
   sleep_data: sleep_day[];
-  sleep_availability: Map<string, time>
+  sleep_availability: Map<string, [time, string]>
   constructor(n: string, a: number, g: string) {
     this.name = n;
     this.age = a;
     this.gender = g;
     this.sleep_data = [];
-    this.sleep_availability = new Map<string, time>();
+
+    this.sleep_availability = new Map<string, [time, string]>();
+    // this.initializeSleepAvailability();
   }
+
+  initializeSleepAvailability() {
+    for (let i = 0; i < KEYNAMES.length; i++) {
+      this.sleep_availability.set(KEYNAMES[i], [new time(0,0,'PM'), 'NaN'])
+    }
+    return
+  }
+
   getName() {
     return this.name;
   }
@@ -331,3 +350,7 @@ const avg_boom_light = 54;
 const avg_boom_rem = 21;
 const avg_boom_bedtime = new time(11, 17, 'pm');
 const avg_boom_wakeup = new time(6, 53, 'am');
+function List<T, U>() {
+  throw new Error("Function not implemented.");
+}
+

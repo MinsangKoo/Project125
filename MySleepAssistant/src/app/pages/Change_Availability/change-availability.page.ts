@@ -11,20 +11,20 @@ import { time } from 'src/classes';
 export class ChangeAvailabilityPage implements OnInit {
 
   
-  public mondayStart = "2023-02-23T21:00:00-08:00";
-  public mondayEnd = "2023-02-23T08:00:00-08:00";
-  public tuesdayStart = "2023-02-23T21:00:00-08:00";
-  public tuesdayEnd = "2023-02-23T08:00:00-08:00";
-  public wednesdayStart = "2023-02-23T21:00:00-08:00";
-  public wednesdayEnd = "2023-02-23T08:00:00-08:00";
-  public thursdayStart = "2023-02-23T21:00:00-08:00";
-  public thursdayEnd = "2023-02-23T08:00:00-08:00";
-  public fridayStart = "2023-02-23T21:00:00-08:00";
-  public fridayEnd = "2023-02-23T08:00:00-08:00";
-  public saturdayStart = "2023-02-23T21:00:00-08:00";
-  public saturdayEnd = "2023-02-23T08:00:00-08:00";
-  public sundayStart = "2023-02-23T21:00:00-08:00";
-  public sundayEnd = "2023-02-23T08:00:00-08:00";
+  public mondayStart = "";
+  public mondayEnd = "";
+  public tuesdayStart = "";
+  public tuesdayEnd = "";
+  public wednesdayStart = "";
+  public wednesdayEnd = "";
+  public thursdayStart = "";
+  public thursdayEnd = "";
+  public fridayStart = "";
+  public fridayEnd = "";
+  public saturdayStart = "";
+  public saturdayEnd = "";
+  public sundayStart = "";
+  public sundayEnd = "";
 
   constructor(private activatedRoute: ActivatedRoute, public personService: PersonService) { }
 
@@ -70,17 +70,44 @@ export class ChangeAvailabilityPage implements OnInit {
     
     
     for (let i = 0; i < variables.length; i++) {
-      let time = this.helperAvailability(variables[i]);
-      let key = keyNames[i];
-      this.personService.setAvailability(key, time);
+    // This is our time class 
+    let time = this.helperAvailability(variables[i]);
+    // This is the string representation that we get from changing our start or end times
+    let strTime = variables[i]
+    // This is our key name
+    let key = keyNames[i];
+    
+    this.personService.setAvailability(key, time, strTime);
 
-    }
+  }
 
     console.log(this.personService.getPerson().sleep_availability);
 
   }
 
-  ngOnInit() { 
+  // Take in our Person from PersonService and check their availability. 
+  // Set all availabilities to the saved availabilities
+
+  ngOnInit() {
+    
+    let savedAvailability = this.personService.getPerson().getSleepAvailability();
+
+
+    this.mondayStart = savedAvailability.get("mondayStart")![1];
+    this.mondayEnd = savedAvailability.get("mondayEnd")![1];
+    this.tuesdayStart = savedAvailability.get("tuesdayStart")![1];
+    this.tuesdayEnd = savedAvailability.get("tuesdayEnd")![1];
+    this.wednesdayStart = savedAvailability.get("wednesdayStart")![1];
+    this.wednesdayEnd = savedAvailability.get("wednesdayEnd")![1];
+    this.thursdayStart = savedAvailability.get("thursdayStart")![1];
+    this.thursdayEnd = savedAvailability.get("thursdayEnd")![1];
+    this.fridayStart = savedAvailability.get("fridayStart")![1];
+    this.fridayEnd = savedAvailability.get("fridayEnd")![1];
+    this.saturdayStart = savedAvailability.get("saturdayStart")![1];
+    this.saturdayEnd = savedAvailability.get("saturdayEnd")![1];
+    this.sundayStart = savedAvailability.get("sundayStart")![1];
+    this.sundayEnd = savedAvailability.get("sundayEnd")![1];
+
   }
 
 }

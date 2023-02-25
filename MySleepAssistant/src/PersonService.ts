@@ -25,7 +25,7 @@ export class PersonService {
         this.person.gender = gender;
     }
 
-    setAvailability(key:string, value:time) {
-        this.person.sleep_availability.set(key, value)
+    setAvailability(key:string, value1:time, value2:string) {
+        this.person.sleep_availability.set(key, [value1,value2]);
     }
 }

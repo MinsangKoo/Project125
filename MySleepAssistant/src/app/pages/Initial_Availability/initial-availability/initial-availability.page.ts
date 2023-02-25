@@ -58,7 +58,7 @@ export class InitialAvailabilityPage implements OnInit {
   public storeAvailability() {
     console.log(this.mondayStart);
     console.log(new Date(this.mondayStart).toLocaleTimeString());
-    console.log(new Date('12:00:00 PM'));
+    
 
     // var mondayStartDate = new Date(this.mondayStart);
     // let mondayStartHour = '';
@@ -95,9 +95,14 @@ export class InitialAvailabilityPage implements OnInit {
     
     
     for (let i = 0; i < variables.length; i++) {
+      // This is our time class 
       let time = this.helperAvailability(variables[i]);
+      // This is the string representation that we get from changing our start or end times
+      let strTime = variables[i]
+      // This is our key name
       let key = keyNames[i];
-      this.personService.setAvailability(key, time);
+      
+      this.personService.setAvailability(key, time, strTime);
 
     }
 
