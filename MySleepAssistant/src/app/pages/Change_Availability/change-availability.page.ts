@@ -11,20 +11,20 @@ import { time } from 'src/classes';
 export class ChangeAvailabilityPage implements OnInit {
 
   
-  public mondayStart = "2023-02-23T21:00:00-08:00";
-  public mondayEnd = "2023-02-23T08:00:00-08:00";
-  public tuesdayStart = "2023-02-23T21:00:00-08:00";
-  public tuesdayEnd = "2023-02-23T08:00:00-08:00";
-  public wednesdayStart = "2023-02-23T21:00:00-08:00";
-  public wednesdayEnd = "2023-02-23T08:00:00-08:00";
-  public thursdayStart = "2023-02-23T21:00:00-08:00";
-  public thursdayEnd = "2023-02-23T08:00:00-08:00";
-  public fridayStart = "2023-02-23T21:00:00-08:00";
-  public fridayEnd = "2023-02-23T08:00:00-08:00";
-  public saturdayStart = "2023-02-23T21:00:00-08:00";
-  public saturdayEnd = "2023-02-23T08:00:00-08:00";
-  public sundayStart = "2023-02-23T21:00:00-08:00";
-  public sundayEnd = "2023-02-23T08:00:00-08:00";
+  public mondayStart = "";
+  public mondayEnd = "";
+  public tuesdayStart = "";
+  public tuesdayEnd = "";
+  public wednesdayStart = "";
+  public wednesdayEnd = "";
+  public thursdayStart = "";
+  public thursdayEnd = "";
+  public fridayStart = "";
+  public fridayEnd = "";
+  public saturdayStart = "";
+  public saturdayEnd = "";
+  public sundayStart = "";
+  public sundayEnd = "";
 
   constructor(private activatedRoute: ActivatedRoute, public personService: PersonService) { }
 
@@ -108,10 +108,6 @@ export class ChangeAvailabilityPage implements OnInit {
     this.sundayStart = savedAvailability.get("sundayStart")![1];
     this.sundayEnd = savedAvailability.get("sundayEnd")![1];
 
-
-
-
-    
   }
 
 }
