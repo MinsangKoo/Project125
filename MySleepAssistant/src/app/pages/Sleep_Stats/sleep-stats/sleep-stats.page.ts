@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Person, Averages, sleep_day, time} from '../../../../classes';
 import {Date as customDate} from '../../../../classes';
 import { PersonService } from 'src/PersonService';
 import * as sleep_algo from '../../../../sleep_algo';
+// import { IonModal } from '@ionic/angular';
+// import { OverlayEventDetail } from '@ionic/core/components';
 
 ///MySleepAssistant/src/classes.ts
 @Component({
@@ -12,6 +14,7 @@ import * as sleep_algo from '../../../../sleep_algo';
   styleUrls: ['./sleep-stats.page.scss'],
 })
 export class SleepStatsPage implements OnInit {
+
   public date = '2/23/2003';
   public dateObj2 = new Date();
   public prevDate2 = new Date();
@@ -25,12 +28,14 @@ export class SleepStatsPage implements OnInit {
   public light_sleep_ratio = 70;
   public deep_sleep_ratio = 15;
   public rem_sleep_ratio = 15;
+
   
 
   constructor(private activatedRoute: ActivatedRoute, public personService: PersonService) {}
 
   // This function makes it so that the user can only select dates in the last 30 days
   setDateCalenderMinMax() {
+
     if (this.dateObj2.getMonth() + 1 < 10)
       this.currentDateString2 =
         this.dateObj2.getFullYear().toString() +
