@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Person, Averages, sleep_day, time } from '../../../../classes';
 import * as sleep_algo from '../../../../sleep_algo';
+// import { IonModal } from '@ionic/angular';
+// import { OverlayEventDetail } from '@ionic/core/components';
 
 ///MySleepAssistant/src/classes.ts
 @Component({
@@ -10,6 +12,7 @@ import * as sleep_algo from '../../../../sleep_algo';
   styleUrls: ['./sleep-stats.page.scss'],
 })
 export class SleepStatsPage implements OnInit {
+  // @ViewChild(IonModal) modal: IonModal;
   public folder!: string;
   public date = '2/23/2003';
   public dateObj2 = new Date();
@@ -23,8 +26,24 @@ export class SleepStatsPage implements OnInit {
   public rem_sleep_ratio = 15;
   public currentDateString2 = '';
   public prevDateString2 = '';
+  public message = '';
 
   constructor(private activatedRoute: ActivatedRoute) {}
+
+  // cancel() {
+  //   this.modal.dismiss(null, 'cancel');
+  // }
+
+  // confirm() {
+  //   this.modal.dismiss(this.numberOfCups, 'confirm');
+  // }
+
+  // onWillDismiss(event: Event) {
+  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
+  //   if (ev.detail.role === 'confirm') {
+  //     this.message = `Hello message thing, ${ev.detail.data}!`;
+  //   }
+  // }
 
   ngOnInit() {
     // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;

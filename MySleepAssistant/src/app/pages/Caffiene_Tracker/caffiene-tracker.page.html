@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center; font-size:28px">Caffiene Tracker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-text style="font-size:22px; color: #ffffff">
+    <p style="padding-left:5%; padding-right:5%">
+      Enter the number of cups of a caffinated drink that you have consumed within the last 6 hours before your bedtime tonight.
+    </p>
+  </ion-text>
+  <!-- <p>Enter the number of cups of a caffinated drink that you have consumed within the last 6 hours before your bedtime tonight.</p> -->
+  <ion-item>
+    <br>
+    <ion-input type="number" placeholder="Number of cups" [(ngModel)]="numberOfCups"></ion-input>
+  </ion-item>
+</ion-content>
+
+<div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" routerLink="/pages/Sleep_Stats/sleep-stats">Cancel</ion-button>
+      </ion-col>
+      
+      <ion-col> </ion-col>
+      
+      <ion-col>
+        <ion-button expand="block" routerLink="/pages/Sleep_Stats/sleep-stats">Confirm</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
