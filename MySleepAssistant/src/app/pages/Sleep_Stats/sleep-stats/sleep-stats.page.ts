@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Person, Averages, sleep_day, time} from '../../../../classes';
 import {Date as customDate} from '../../../../classes';
+import { PersonService } from 'src/PersonService';
 import * as sleep_algo from '../../../../sleep_algo';
 
 ///MySleepAssistant/src/classes.ts
@@ -26,7 +27,7 @@ export class SleepStatsPage implements OnInit {
   public rem_sleep_ratio = 15;
   
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, public personService: PersonService) {}
 
   // This function makes it so that the user can only select dates in the last 30 days
   setDateCalenderMinMax() {
@@ -78,7 +79,9 @@ export class SleepStatsPage implements OnInit {
  // This function is called whenever the user changes the date
   changeSelectedDate() {
     TODO: // Change all the information on this page to reflect the data in the date that the user changed to
+    // selectedDateString
 
+    
     // Retrieve our person from the PersonService
     // Get the sleep day object pertaining to the date that they selected on the calendar
     // Update all the information on this page
@@ -89,13 +92,16 @@ export class SleepStatsPage implements OnInit {
   }
 
   ngOnInit() {
-    var p = new Person("John", 22, 'm');
-    var btime = new time(12, 0, "AM")
-    var wtime = new time(9, 0, "AM")
-    var date = new customDate(12, 5, 2022)
-    var s = new sleep_day(15, 50, 35, 360, btime, wtime, 0, date);
-    p.addDay(s);
-    let t = sleep_algo.calculate_sleepscore(p, s);
+    // var p = new Person("John", 22, 'm');
+    // var btime = new time(12, 0, "AM")
+    // var wtime = new time(9, 0, "AM")
+    // var date = new customDate(12, 5, 2022)
+    // var s = new sleep_day(15, 50, 35, 360, btime, wtime, 0, date);
+    // p.addDay(s);
+    // let t = sleep_algo.calculate_sleepscore(p, s);
+
+    // this.sleep_score = s.sleep_score;
+
 
     this.setDateCalenderMinMax();
   }
