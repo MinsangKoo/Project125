@@ -45,7 +45,12 @@ const routes: Routes = [
   {
     path: 'pages/Connect2/connect2',
     loadChildren: () => import('./pages/Connect2/connect2/connect2.module').then( m => m.Connect2PageModule)
+  },
+  {
+    path: 'pages/Caffiene_Tracker/caffiene-tracker',
+    loadChildren: () => import('./pages/Caffiene_Tracker/caffiene-tracker.module').then( m => m.CaffieneTrackerPageModule)
   }
+
 
   // {
   //   path: 'pages/initial-availability',
