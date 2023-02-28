@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Person, Averages, sleep_day, time } from '../../../../classes';
+import {Person, Averages, sleep_day, time} from '../../../../classes';
+import {Date as customDate} from '../../../../classes';
 import * as sleep_algo from '../../../../sleep_algo';
 // import { IonModal } from '@ionic/angular';
 // import { OverlayEventDetail } from '@ionic/core/components';
@@ -12,11 +13,13 @@ import * as sleep_algo from '../../../../sleep_algo';
   styleUrls: ['./sleep-stats.page.scss'],
 })
 export class SleepStatsPage implements OnInit {
-  // @ViewChild(IonModal) modal: IonModal;
-  public folder!: string;
+
   public date = '2/23/2003';
   public dateObj2 = new Date();
   public prevDate2 = new Date();
+  public currentDateString2 = '';
+  public prevDateString2 = '';
+  public selectedDateString = '';
   public sleep_score = 15;
   public sleep_reccomendation_text =
     'Go to sleep. This will improve the amount of deep and rem sleep that you get';
@@ -24,38 +27,13 @@ export class SleepStatsPage implements OnInit {
   public light_sleep_ratio = 70;
   public deep_sleep_ratio = 15;
   public rem_sleep_ratio = 15;
-  public currentDateString2 = '';
-  public prevDateString2 = '';
-  public message = '';
+
+  
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
-  // cancel() {
-  //   this.modal.dismiss(null, 'cancel');
-  // }
-
-  // confirm() {
-  //   this.modal.dismiss(this.numberOfCups, 'confirm');
-  // }
-
-  // onWillDismiss(event: Event) {
-  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
-  //   if (ev.detail.role === 'confirm') {
-  //     this.message = `Hello message thing, ${ev.detail.data}!`;
-  //   }
-  // }
-
-  ngOnInit() {
-    // this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    var p = new Person("John", 22, 'm');
-    var btime = new time(12, 0, "AM")
-    var wtime = new time(9, 0, "AM")
-    var s = new sleep_day(15, 50, 35, 360, btime, wtime);
-    p.addDay(s);
-    let t = sleep_algo.calculate_sleepscore(p);
-
-    console.log(t);
-    // console.log('hello');
+  // This function makes it so that the user can only select dates in the last 30 days
+  setDateCalenderMinMax() {
 
     if (this.dateObj2.getMonth() + 1 < 10)
       this.currentDateString2 =
@@ -100,7 +78,30 @@ export class SleepStatsPage implements OnInit {
         '0' + this.prevDate2.getDate().toString() + 'T00:00:00';
     else
       this.prevDateString2 += this.prevDate2.getDate().toString() + 'T00:00:00';
+  }
 
-    // console.log(this.prevDateString)
+ // This function is called whenever the user changes the date
+  changeSelectedDate() {
+    TODO: // Change all the information on this page to reflect the data in the date that the user changed to
+
+    // Retrieve our person from the PersonService
+    // Get the sleep day object pertaining to the date that they selected on the calendar
+    // Update all the information on this page
+    
+    // console.log(this.currentDateString2);
+    // console.log(this.selectedDateString);
+    return;
+  }
+
+  ngOnInit() {
+    var p = new Person("John", 22, 'm');
+    var btime = new time(12, 0, "AM")
+    var wtime = new time(9, 0, "AM")
+    var date = new customDate(12, 5, 2022)
+    var s = new sleep_day(15, 50, 35, 360, btime, wtime, 0, date);
+    p.addDay(s);
+    let t = sleep_algo.calculate_sleepscore(p, s);
+
+    this.setDateCalenderMinMax();
   }
 }

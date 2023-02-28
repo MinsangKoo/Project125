@@ -28,15 +28,10 @@ export class SignUpPage implements OnInit {
     let timeDiff = Math.abs(Date.now() - birthdate.getTime());
     let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
     var gender = this.gender
-    
+
     this.personService.setName(name)
     this.personService.setAge(age)
     this.personService.setGender(gender)
-
-
-    //alert(this.gender)
-    // alert(p.getGender())
-    // console.log(name, gender, birthdate, age);
   }
 
   ngOnInit() {
@@ -84,4 +79,5 @@ export class SignUpPage implements OnInit {
     else
       this.prevDateString += this.prevDate.getDate().toString() + 'T00:00:00';
   }
+
 }

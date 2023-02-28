@@ -1,7 +1,7 @@
 /*
-The time class takes in "hour", "minute", and either AM or PM. 
+The time class takes in "hour", "minute", and either AM or PM.
 All the functions in the sleep_algo class relating to the time class, you don't
-need to understand the implementation. Just create a time object when creating a 
+need to understand the implementation. Just create a time object when creating a
 sleep_data object.
 */
 export class time {
@@ -22,6 +22,10 @@ export class time {
   getName() {
     return this.l;
   }
+  getTime() { // returns the time in this format 12:00 PM 
+    return this.hour.toString() + ':' + this.minute.toString() + ' ' + this.l;
+  }
+
 }
 /*
 The sleep_day class represents all the data within a single day that the user records.
@@ -29,12 +33,42 @@ It includes their deep, light, rem sleep, sleep duration, what time they go to b
 and how much caffeine they had during that day.
 
 For caffeine specifically, if they drank any sort of caffeine more than 6 hours before, caffeine will
-default to 0 in the constructor. You can either leave out the caffeine when constructing an object or 
+default to 0 in the constructor. You can either leave out the caffeine when constructing an object or
 pass in 0.
 
-If it was less than 6 hours, pass the amount of cups they drank as the 
-last parameter. 
+If it was less than 6 hours, pass the amount of cups they drank as the
+last parameter.
 */
+
+export class Date {
+  month: number;
+  day: number;
+  year: number;
+  constructor(m: number, d: number, y: number) {
+    this.month = m
+    this.day = d
+    this.year = y
+  }
+  getYear() {
+    return this.year
+  }
+  getMonth() {
+    return this.month
+  }
+  getDay() {
+    return this.day
+  }
+
+  setDate(m: number, d: number, y: number) {
+    this.month = m
+    this.day = d
+    this.year = y
+  }
+
+  printDate() {
+    return this.month + '/' + this.day
+  }
+}
 export class sleep_day {
   deep: number;
   light: number;
@@ -43,10 +77,14 @@ export class sleep_day {
   bedtime: time;
   wakeup: time;
   caffeine: number;
-  // ask them to store sleep score and sleep date for each sleep day
+  date: Date;
+  sleep_score: number;
 
+  //TODO:
+  // make a sleep_score variable
+  // make a sleep_date variable to hold the date of the sleep day
 
-  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0) {
+  constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0, date: Date) {
     this.deep = d;
     this.light = l;
     this.rem = r;
@@ -54,6 +92,8 @@ export class sleep_day {
     this.bedtime = b;
     this.wakeup = w;
     this.caffeine = c;
+    this.date = date;
+    this.sleep_score = 0
 
   }
   getDeep() {
@@ -77,30 +117,61 @@ export class sleep_day {
   getCaffeine() {
     return this.caffeine;
   }
+  getDate() {
+    return this.date;
+  }
+  getSleepscore() {
+    return this.sleep_score;
+  }
+  setSleepscore(s: number) {
+    this.sleep_score = s;
+  }
+
+  // TODO 
+  // Make calculate sleep score method
 
 }
 /*
 The person class keeps track of "age", "gender", and an array containing "sleep_days".
 It will keep track of the 30 most recent sleep_data. To push into the array, call addDay(sleep_data)
 
-If you want to get the most recent day, you can call person.getCurDay(). If you want to grab a 
-specific date, call person.getDay(v) where v is how many days ago it was. 
+If you want to get the most recent day, you can call person.getCurDay(). If you want to grab a
+specific date, call person.getDay(v) where v is how many days ago it was.
 For example, person.getDay(0) returns the most recent day
 person.getDay(5) returns 5 days ago.
 */
+
+let KEYNAMES = ["mondayStart", "mondayEnd",
+                "tuesdayStart", "tuesdayEnd",
+                "wednesdayStart", "wednesdayEnd",
+                "thursdayStart", "thursdayEnd",
+                "fridayStart", "fridayEnd",
+                "saturdayStart", "saturdayEnd",
+                "sundayStart", "sundayEnd"];
+
 export class Person {
   name: string;
   age: number;
   gender: string;
   sleep_data: sleep_day[];
-  sleep_availability: Map<string,time>
+  sleep_availability: Map<string, [time, string]>
   constructor(n: string, a: number, g: string) {
     this.name = n;
     this.age = a;
     this.gender = g;
     this.sleep_data = [];
-    this.sleep_availability = new Map<string,time>();
+
+    this.sleep_availability = new Map<string, [time, string]>();
+    // this.initializeSleepAvailability();
   }
+
+  initializeSleepAvailability() {
+    for (let i = 0; i < KEYNAMES.length; i++) {
+      this.sleep_availability.set(KEYNAMES[i], [new time(0,0,'PM'), 'NaN'])
+    }
+    return
+  }
+
   getName() {
     return this.name;
   }
@@ -116,17 +187,23 @@ export class Person {
   getDay(c: number) {
     return this.sleep_data[c];
   }
+  getSleepAvailability() {
+    return this.sleep_availability;
+  }
+
   addDay(s: sleep_day) {
     this.sleep_data.unshift(s)
     if (this.sleep_data.length > 30) {
       this.sleep_data.splice(0, 31);
     }
   }
+
+
 }
 
 /*
 The averages class takes in a person object into the constructor. It returns the averages associated
-with that specific persons age and gender. For example, if person is a 22 year old male, the 
+with that specific persons age and gender. For example, if person is a 22 year old male, the
 get_averages functions will return averages associated with genZ males.
 */
 export class Averages {
@@ -273,3 +350,7 @@ const avg_boom_light = 54;
 const avg_boom_rem = 21;
 const avg_boom_bedtime = new time(11, 17, 'pm');
 const avg_boom_wakeup = new time(6, 53, 'am');
+function List<T, U>() {
+  throw new Error("Function not implemented.");
+}
+
