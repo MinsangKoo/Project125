@@ -80,10 +80,6 @@ export class sleep_day {
   date: Date;
   sleep_score: number;
 
-  //TODO:
-  // make a sleep_score variable
-  // make a sleep_date variable to hold the date of the sleep day
-
   constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0, date: Date) {
     this.deep = d;
     this.light = l;
@@ -126,9 +122,6 @@ export class sleep_day {
   setSleepscore(s: number) {
     this.sleep_score = s;
   }
-
-  // TODO 
-  // Make calculate sleep score method
 
 }
 /*
