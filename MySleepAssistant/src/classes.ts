@@ -122,6 +122,10 @@ export class sleep_day {
   setSleepscore(s: number) {
     this.sleep_score = s;
   }
+  setCaffiene(c: number)
+  {
+    this.caffeine = c;
+  }
 
 }
 /*
