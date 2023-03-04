@@ -79,6 +79,7 @@ export class sleep_day {
   caffeine: number;
   date: Date;
   sleep_score: number;
+  recommendations: string[]
 
   constructor(d: number, l: number, r: number, s: number, b: time, w: time, c = 0, date: Date) {
     this.deep = d;
@@ -90,6 +91,7 @@ export class sleep_day {
     this.caffeine = c;
     this.date = date;
     this.sleep_score = 0
+    this.recommendations = []
 
   }
   getDeep() {
@@ -119,13 +121,19 @@ export class sleep_day {
   getSleepscore() {
     return this.sleep_score;
   }
+  getRecommendations() {
+    return this.recommendations;
+  }
   setSleepscore(s: number) {
     this.sleep_score = s;
   }
-  setCaffiene(c: number)
-  {
+  setCaffiene(c: number) {
     this.caffeine = c;
   }
+  setRecommendations(r: string[]) {
+    this.recommendations = r
+  }
+
 
 }
 /*
@@ -139,12 +147,12 @@ person.getDay(5) returns 5 days ago.
 */
 
 let KEYNAMES = ["mondayStart", "mondayEnd",
-                "tuesdayStart", "tuesdayEnd",
-                "wednesdayStart", "wednesdayEnd",
-                "thursdayStart", "thursdayEnd",
-                "fridayStart", "fridayEnd",
-                "saturdayStart", "saturdayEnd",
-                "sundayStart", "sundayEnd"];
+  "tuesdayStart", "tuesdayEnd",
+  "wednesdayStart", "wednesdayEnd",
+  "thursdayStart", "thursdayEnd",
+  "fridayStart", "fridayEnd",
+  "saturdayStart", "saturdayEnd",
+  "sundayStart", "sundayEnd"];
 
 export class Person {
   name: string;
@@ -164,7 +172,7 @@ export class Person {
 
   initializeSleepAvailability() {
     for (let i = 0; i < KEYNAMES.length; i++) {
-      this.sleep_availability.set(KEYNAMES[i], [new time(0,0,'PM'), 'NaN'])
+      this.sleep_availability.set(KEYNAMES[i], [new time(0, 0, 'PM'), 'NaN'])
     }
     return
   }

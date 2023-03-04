@@ -86,4 +86,26 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
     (deep_score + light_score + rem_score + sleeptime_score * 2 + bedtime_score * .5 + wakeup_score * .5 + caffeine_score) * (100 / 7);
 
   day.setSleepscore(sleep_score)
+
+  let rec = []
+  if (bedtime_score < .8) {
+    if (cur_bedtime > avg_bedtime) {
+      rec.push("We recommend going to sleep earlier")
+    }
+    else {
+      rec.push("We recommend going to sleep later")
+    }
+  }
+  if (wakeup_score < .8) {
+    if (cur_wakeup > avg_wakeup) {
+      rec.push("We recommend waking up earlier")
+    }
+    else {
+      rec.push("We recommend waking up later")
+    }
+  }
+  if (caffeine_score < 1) {
+    rec.push("We recommend drinking less caffeine")
+  }
+
 }
