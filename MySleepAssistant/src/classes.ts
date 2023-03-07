@@ -65,6 +65,10 @@ export class Date {
     this.year = y
   }
 
+  getDate() {
+    return this.month + this.day + this.year;
+  }
+
   printDate() {
     return this.month + '/' + this.day
   }
@@ -117,6 +121,9 @@ export class sleep_day {
   }
   getDate() {
     return this.date;
+  }
+  getDateString() {
+    return String(this.date.getMonth() + this.date.getDay() + this.date.getYear())
   }
   getSleepscore() {
     return this.sleep_score;
