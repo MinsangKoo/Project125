@@ -24,7 +24,7 @@
 
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime style="color: black;" id="datetime" presentation="date" locale="en-US" [(ngModel)]="selectedDateString" [value]=currentDateString2 [min]="prevDateString2" [max]="currentDateString2" (ionChange)="changeSelectedDate()"></ion-datetime>
+            <ion-datetime #myPicker style="color: black;" id="datetime" presentation="date" locale="en-US" [(ngModel)]="selectedDateString" [value]=currentDateString2 [min]="prevDateString2" [max]="currentDateString2" (ionChange)="changeSelectedDate(myPicker.value)"></ion-datetime>
           </ng-template>
         </ion-modal>
         <br>

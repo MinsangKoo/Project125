@@ -58,7 +58,7 @@ export class SleepStatsPage implements OnInit {
 
     this.prevDate2 = this.dateObj2;
     this.prevDate2.setDate(this.prevDate2.getDate() - 30);
-    // console.log(this.prevDate2.getDate());
+    // console.log(this.prevDate2.getDate())s;
     // console.log(this.prevDate)
 
     if (this.prevDate2.getMonth() + 1 < 10)
@@ -82,15 +82,32 @@ export class SleepStatsPage implements OnInit {
   }
 
  // This function is called whenever the user changes the date
-  changeSelectedDate() {
-    TODO: // Change all the information on this page to reflect the data in the date that the user changed to
+  changeSelectedDate($event: any) {
+    //TODO: Change all the information on this page to reflect the data in the date that the user changed to
     // selectedDateString
+    var date = new Date($event);
+    var person = this.personService.getPerson()
+    var sleep_data = person.sleep_data
+    var month = String(Number(date.getMonth()) + 1)
+    var year = date.getFullYear()
+    var day = date.getDate()
+    var new_date = month + day + year
+    var new_sleep_day = null;
+    for (let i = 0; i < sleep_data.length; i++) {
+      if (sleep_data[i].getDateString() == new_date) {
+        new_sleep_day = sleep_data[i]
+        alert(new_sleep_day.getDate())
+        break
+      }
+    }
+
+
 
     
     // Retrieve our person from the PersonService
     // Get the sleep day object pertaining to the date that they selected on the calendar
     // Update all the information on this page
-    
+    // will have to loop through sleep day array in person
     // console.log(this.currentDateString2);
     // console.log(this.selectedDateString);
     return;
