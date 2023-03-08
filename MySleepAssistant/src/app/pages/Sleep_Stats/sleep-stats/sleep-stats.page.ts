@@ -93,10 +93,22 @@ export class SleepStatsPage implements OnInit {
     var day = date.getDate()
     var new_date = month + day + year
     var new_sleep_day = null;
+    console.log(new_date)
+    console.log(sleep_data)
     for (let i = 0; i < sleep_data.length; i++) {
+      console.log(sleep_data[i].getDateString());
       if (sleep_data[i].getDateString() == new_date) {
         new_sleep_day = sleep_data[i]
-        alert(new_sleep_day.getDate())
+        // alert(new_sleep_day.getDate())
+        
+        console.log(new_sleep_day.getRem());
+        this.rem_sleep_ratio = new_sleep_day.getRem();
+        this.deep_sleep_ratio = new_sleep_day.getDeep();
+        this.light_sleep_ratio = new_sleep_day.getLight();
+        var sleep_duration_hours = String(Math.floor(new_sleep_day.getSleeptime() / 60));
+        var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
+        this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
+        this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
         break
       }
     }
@@ -123,6 +135,35 @@ export class SleepStatsPage implements OnInit {
     // let t = sleep_algo.calculate_sleepscore(p, s);
 
     // this.sleep_score = s.sleep_score;
+
+    var date = new Date();
+    var day = String(date.getDate());
+    var month = String(date.getMonth() + 1);
+    var year = String(date.getFullYear());
+
+    var person = this.personService.getPerson()
+    var sleep_data = person.sleep_data
+
+    var dateString = month + day + year;
+    var new_sleep_day = null;
+
+    for (let i = 0; i < sleep_data.length; i++) {
+      console.log(sleep_data[i].getDateString());
+      if (sleep_data[i].getDateString() == dateString) {
+        new_sleep_day = sleep_data[i]
+        // alert(new_sleep_day.getDate())
+        
+        console.log(new_sleep_day.getRem());
+        this.rem_sleep_ratio = new_sleep_day.getRem();
+        this.deep_sleep_ratio = new_sleep_day.getDeep();
+        this.light_sleep_ratio = new_sleep_day.getLight();
+        var sleep_duration_hours = String(Math.floor(new_sleep_day.getSleeptime() / 60));
+        var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
+        this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
+        this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+        break
+      }
+    }
 
 
     this.setDateCalenderMinMax();
