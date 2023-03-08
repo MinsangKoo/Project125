@@ -126,5 +126,6 @@ export class ConnectPage implements OnInit {
     this.personService.addDay(sleepDay28);
     this.personService.addDay(sleepDay29);
     this.personService.addDay(sleepDay30);
+
   }
 }
