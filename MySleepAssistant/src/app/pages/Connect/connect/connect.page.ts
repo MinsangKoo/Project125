@@ -128,5 +128,6 @@ export class ConnectPage implements OnInit {
     calculate_sleepscore(p, sleepDay30, 0);
 
     
+
   }
 }
