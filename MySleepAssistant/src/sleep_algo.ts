@@ -2,6 +2,18 @@ import { Averages, Person, sleep_day, time } from './classes';
 
 // let p1 = new Person(1, 'm');
 // let s = new sleep_day(1, 1, 1, 1);
+let deep_and_light_reccomendations = [
+  "Exercise 6+ hours before bedtime",
+  "Do not use your phone an hour before bedtime. The blue light affects your sleep ability",
+  "Eating fiber can improve your sleep quality",
+  "Sleep in a dark and quiet room",
+  "Consider listening to white noise when attempting to sleep",
+  "Avoid consuming alcohol or smoking before sleeping",
+  "Maintain reccomended sleep schedule to improve sleep quality",
+  "Avoid eating within 3 hours of bedtime"
+
+];
+let rem_reccomendation = 'Your REM percentage is low, but due to REM rebound, it will naturally increase';
 
 //converts hours into 0-23 depending on am or pm
 function convert_hour(t: time) {
@@ -46,7 +58,7 @@ when calculating sleep_scores, you will need to know how to use 3 classes.
   5) Call calculate_sleep_score(p1, day) //this will set the sleep_score for that day
   6) Call p1.addDay(day)
 */
-export function calculate_sleepscore(person: Person, day: sleep_day) {
+export function calculate_sleepscore(person: Person, day: sleep_day, day_num: number) {
   //Retrieves the averages associated with this persons gender and age
   let a1 = new Averages(person);
 
@@ -91,61 +103,96 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
 
   var personsSleepTime = 0;
 
-  for (let i = 0; i < 5; i++) // looping over 5 most recent days
+  
+  if (day_num < 26)
   {
-    personsSleepTime += person.sleep_data[i].getSleeptime()
+    for (let i = day_num; i <= day_num + 4; i++) // looping over 5 most recent days
+    {
+      personsSleepTime += person.sleep_data[i].getSleeptime()
+    }
+  }
+  
+  else
+  {
+    for (let i = day_num; i < person.sleep_data.length; i++) // looping over 5 most recent days
+    {
+      personsSleepTime += person.sleep_data[i].getSleeptime()
+    }
   }
 
-  if (avg_sleeptime < personsSleepTime / 5) // not getting enough sleep
-  {
-    rec.push("You are getting more than average sleep")
-  }
 
-  if (avg_sleeptime > personsSleepTime / 5) // not getting enough sleep
-  {
-    rec.push("You are getting less than average sleep")
-  }
+  
 
   var gettingTooMuchSleep = false;
-  for (let i = 1; i < 5; i++) // looping over 5 most recent days
+
+  if (day_num < 26)
   {
-    if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() > 90) // not getting enough sleep
+    for (let i = day_num; i <= day_num + 3; i++) // looping over 5 most recent days
     {
-      rec.push("You are getting less than average sleep due to sleeping later than usual")
+      if (person.sleep_data[i + 1].getSleeptime() - person.sleep_data[i].getSleeptime() > 90) // not getting enough sleep
+      {
+        rec.push("You are getting less than average sleep due to sleeping later than usual")
+        break;
+      }
     }
   }
 
-  for (let i = 1; i < 5; i++) // looping over 5 most recent days to see if they got too much sleep
+
+  else
   {
-    if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() < 90) // not getting enough sleep
+    for (let i = day_num; i < person.sleep_data.length - 1; i++) // looping over 5 most recent days to see if they got too much sleep
     {
-      rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
-      gettingTooMuchSleep = true;
 
-      break;
+      if (person.sleep_data[i + 1].getSleeptime() - person.sleep_data[i].getSleeptime() < 90) // not getting enough sleep
+      {
+        rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
+        gettingTooMuchSleep = true;
+        break;
+      }
+
     }
   }
 
 
 
-  if (bedtime_score < .8) {
-    if (cur_bedtime > avg_bedtime) {
-      rec.push("We recommend going to sleep earlier")
-    }
-    else {
-      rec.push("We recommend going to sleep later")
-    }
+
+
+  // for (let i = 1; i < 5; i++) // looping over 5 most recent days
+  // {
+  //   if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() > 90) // not getting enough sleep
+  //   {
+  //     rec.push("You are getting less than average sleep due to sleeping later than usual")
+  //   }
+  // }
+
+
+
+
+
+  // for (let i = 1; i < 5; i++) // looping over 5 most recent days to see if they got too much sleep
+  // {
+  //   if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() < 90) // not getting enough sleep
+  //   {
+  //     rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
+  //     gettingTooMuchSleep = true;
+  //     break;
+  //   }
+  // }
+
+  if (day.getRem() < a1.get_avg_rem())
+  {
+    rec.push(rem_reccomendation);
   }
-  if (wakeup_score < .8) {
-    if (cur_wakeup > avg_wakeup) {
-      rec.push("We recommend waking up earlier")
-    }
-    else {
-      rec.push("We recommend waking up later")
-    }
+
+  if ((day.getLight() < a1.get_avg_light()) || (day.getDeep() < a1.get_avg_deep()))
+  {
+    const random_int = Math.floor(Math.random() * deep_and_light_reccomendations.length);
+    rec.push(deep_and_light_reccomendations[random_int]);
   }
+
+
   if (caffeine_score < 1) {
-    rec.push("We recommend drinking less caffeine")
+    rec.push("We recommend drinking less caffeine 6 hours before reccomended bedtime")
   }
 
 
@@ -190,10 +237,18 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
 
   var recBedtime = null;
   if (!gettingTooMuchSleep) {
-    recBedtime = String(earliestSleepTimeAvailable);
-    rec.push("Reccomended sleep time: ${recBedtime}");
+    rec.push("Recommended sleep time: " + earliestSleepTimeAvailable.getTime());
   }
-  else {
+
+  else if ((time_diff(latestWakeUpTimeAvailable, earliestSleepTimeAvailable)) < a1.get_avg_sleeptime())
+  {
+    recBedtime = String(earliestSleepTimeAvailable);
+    rec.push("Your sleep availability doesn't allow for you to have enough sleep time");
+    rec.push("Recommended sleep time: " + earliestSleepTimeAvailable.getTime());
+  }
+
+  else
+  {
     var avg_sleep_time = a1.get_avg_sleeptime();
 
     var sleepTime = earliestSleepTimeAvailable;
@@ -212,7 +267,7 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
 
     rec.push("We recommend going to sleep at " + sleepTime.getTime());
   }
-  // account for if they don't have enough available hours
+  
 
 
   day.setRecommendations(rec);
