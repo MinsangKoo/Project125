@@ -84,6 +84,7 @@ export class SleepStatsPage implements OnInit {
   changeSelectedDate($event: any) {
     //TODO: Change all the information on this page to reflect the data in the date that the user changed to
     // selectedDateString
+    this.sleep_reccomendation_array = [];
     var date = new Date($event);
     var person = this.personService.getPerson()
     var sleep_data = person.sleep_data
@@ -145,6 +146,7 @@ export class SleepStatsPage implements OnInit {
     var day = String(date.getDate());
     var month = String(date.getMonth() + 1);
     var year = String(date.getFullYear());
+    this.sleep_reccomendation_array = [];
 
     var person = this.personService.getPerson()
     var sleep_data = person.sleep_data
