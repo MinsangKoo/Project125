@@ -23,7 +23,20 @@ export class time {
     return this.l;
   }
   getTime() { // returns the time in this format 12:00 PM 
-    return this.hour.toString() + ':' + this.minute.toString() + ' ' + this.l;
+    if (this.minute < 10)
+    {
+      return this.hour.toString() + ':0' + this.minute.toString() + ' ' + this.l;
+    }
+    else
+    {
+      return this.hour.toString() + ':' + this.minute.toString() + ' ' + this.l;
+    }
+  }
+  set_minutes(minutes: number) {
+    this.minute = minutes;
+  }
+  set_hours(hour: number) {
+    this.hour = hour;
   }
 
 }
@@ -123,7 +136,7 @@ export class sleep_day {
     return this.date;
   }
   getDateString() {
-    return String(this.date.getMonth() + this.date.getDay() + this.date.getYear())
+    return String(String(this.date.getMonth()) + String(this.date.getDay()) + String(this.date.getYear()))
   }
   getSleepscore() {
     return this.sleep_score;
@@ -203,12 +216,12 @@ export class Person {
     return this.sleep_availability;
   }
 
-  addDay(s: sleep_day) {
-    this.sleep_data.unshift(s)
-    if (this.sleep_data.length > 30) {
-      this.sleep_data.splice(0, 31);
-    }
-  }
+  // addDay(s: sleep_day) {
+  //   this.sleep_data.unshift(s)
+  //   if (this.sleep_data.length > 30) {
+  //     this.sleep_data.splice(0, 31);
+  //   }
+  // }
 
 
 }

@@ -88,6 +88,45 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
   day.setSleepscore(sleep_score)
 
   let rec = []
+
+  var personsSleepTime = 0;
+
+  for (let i = 0; i < 5; i++) // looping over 5 most recent days
+  {
+    personsSleepTime += person.sleep_data[i].getSleeptime()
+  }
+
+  if (avg_sleeptime < personsSleepTime / 5) // not getting enough sleep
+  {
+    rec.push("You are getting more than average sleep")
+  }
+
+  if (avg_sleeptime > personsSleepTime / 5) // not getting enough sleep
+  {
+    rec.push("You are getting less than average sleep")
+  }
+
+  var gettingTooMuchSleep = false;
+  for (let i = 1; i < 5; i++) // looping over 5 most recent days
+  {
+    if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() > 90) // not getting enough sleep
+    {
+      rec.push("You are getting less than average sleep due to sleeping later than usual")
+    }
+  }
+
+  for (let i = 1; i < 5; i++) // looping over 5 most recent days to see if they got too much sleep
+  {
+    if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() < 90) // not getting enough sleep
+    {
+      rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
+      gettingTooMuchSleep = true;
+      break;
+    }
+  }
+
+
+
   if (bedtime_score < .8) {
     if (cur_bedtime > avg_bedtime) {
       rec.push("We recommend going to sleep earlier")
@@ -107,5 +146,74 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
   if (caffeine_score < 1) {
     rec.push("We recommend drinking less caffeine")
   }
+
+
+  var date = new Date()
+  var earliestSleepTimeAvailable = null;
+  var latestWakeUpTimeAvailable = null;
+  if (date.getDay() == 0) // Monday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("mondayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("mondayEnd")![0];
+  }
+  else if (date.getDay() == 1) // Tuesday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("tuesdayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("tuesdayEnd")![0];
+  }
+  else if (date.getDay() == 2) // Wednesday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("wednesdayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("wednesdayEnd")![0];
+  }
+  else if (date.getDay() == 3) // Thursday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("thursdayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("thursdayEnd")![0];
+  }
+  else if (date.getDay() == 4) // Friday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("fridayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("fridayEnd")![0];
+  }
+  else if (date.getDay() == 5) // Saturday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("saturdayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("saturdayEnd")![0];
+  }
+  else // Sunday
+  {
+    earliestSleepTimeAvailable = person.getSleepAvailability().get("sundayStart")![0];
+    latestWakeUpTimeAvailable = person.getSleepAvailability().get("sundayEnd")![0];
+  }
+
+  var recBedtime = null;
+  if (!gettingTooMuchSleep) {
+    recBedtime = String(earliestSleepTimeAvailable);
+    rec.push("Reccomended sleep time: ${recBedtime}");
+  }
+  else {
+    var avg_sleep_time = a1.get_avg_sleeptime();
+
+    var sleepTime = earliestSleepTimeAvailable;
+    while (time_diff(latestWakeUpTimeAvailable, sleepTime) > avg_sleep_time)
+    {
+      if (sleepTime.getMinutes() < 10)
+      {
+        sleepTime.set_hours(sleepTime.getHours() - 1);
+        sleepTime.set_minutes(sleepTime.getMinutes() + 50);
+      }
+      else
+      {
+        sleepTime.set_minutes(sleepTime.getMinutes() - 10)
+      }
+    }
+    rec.push("We recommend going to sleep at " + sleepTime.getTime());
+  }
+  // account for if they don't have enough available hours
+
+
+  day.setRecommendations(rec);
+
 
 }

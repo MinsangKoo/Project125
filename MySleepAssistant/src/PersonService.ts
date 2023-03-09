@@ -1,4 +1,4 @@
-import { Person } from './classes'
+import { Person, sleep_day } from './classes'
 import { Injectable } from '@angular/core';
 import { time } from './classes';
 
@@ -28,4 +28,11 @@ export class PersonService {
     setAvailability(key:string, value1:time, value2:string) {
         this.person.sleep_availability.set(key, [value1,value2]);
     }
+
+    addDay(s: sleep_day) {
+        this.person.sleep_data.unshift(s)
+        if (this.person.sleep_data.length > 30) {
+          this.person.sleep_data.splice(0, 31);
+        }
+      }
 }

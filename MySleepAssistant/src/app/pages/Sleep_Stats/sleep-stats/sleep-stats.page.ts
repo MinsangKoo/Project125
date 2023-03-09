@@ -22,8 +22,7 @@ export class SleepStatsPage implements OnInit {
   public prevDateString2 = '';
   public selectedDateString = '';
   public sleep_score = 15;
-  public sleep_reccomendation_text =
-    'Go to sleep. This will improve the amount of deep and rem sleep that you get';
+  public sleep_reccomendation_array: String[] = [];
   public sleep_duration = '2h 41m';
   public light_sleep_ratio = 70;
   public deep_sleep_ratio = 15;
@@ -93,10 +92,26 @@ export class SleepStatsPage implements OnInit {
     var day = date.getDate()
     var new_date = month + day + year
     var new_sleep_day = null;
+    console.log(new_date)
+    console.log(sleep_data)
     for (let i = 0; i < sleep_data.length; i++) {
+      console.log(sleep_data[i].getDateString());
       if (sleep_data[i].getDateString() == new_date) {
         new_sleep_day = sleep_data[i]
-        alert(new_sleep_day.getDate())
+        // alert(new_sleep_day.getDate())
+        
+        console.log(new_sleep_day.getRem());
+        this.rem_sleep_ratio = new_sleep_day.getRem();
+        this.deep_sleep_ratio = new_sleep_day.getDeep();
+        this.light_sleep_ratio = new_sleep_day.getLight();
+        var sleep_duration_hours = String(Math.floor(new_sleep_day.getSleeptime() / 60));
+        var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
+        this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
+        this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+        for (let i = 0; i < new_sleep_day.getRecommendations().length; i++)
+        {
+          this.sleep_reccomendation_array.push(new_sleep_day.getRecommendations()[i]);
+        }
         break
       }
     }
@@ -123,6 +138,39 @@ export class SleepStatsPage implements OnInit {
     // let t = sleep_algo.calculate_sleepscore(p, s);
 
     // this.sleep_score = s.sleep_score;
+
+    var date = new Date();
+    var day = String(date.getDate());
+    var month = String(date.getMonth() + 1);
+    var year = String(date.getFullYear());
+
+    var person = this.personService.getPerson()
+    var sleep_data = person.sleep_data
+
+    var dateString = month + day + year;
+    var new_sleep_day = null;
+
+    for (let i = 0; i < sleep_data.length; i++) {
+      console.log(sleep_data[i].getDateString());
+      if (sleep_data[i].getDateString() == dateString) {
+        new_sleep_day = sleep_data[i]
+        // alert(new_sleep_day.getDate())
+        
+        console.log(new_sleep_day.getRem());
+        this.rem_sleep_ratio = new_sleep_day.getRem();
+        this.deep_sleep_ratio = new_sleep_day.getDeep();
+        this.light_sleep_ratio = new_sleep_day.getLight();
+        var sleep_duration_hours = String(Math.floor(new_sleep_day.getSleeptime() / 60));
+        var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
+        this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
+        this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+        for (let i = 0; i < new_sleep_day.getRecommendations().length; i++)
+        {
+          this.sleep_reccomendation_array.push(new_sleep_day.getRecommendations()[i]);
+        }
+        break
+      }
+    }
 
 
     this.setDateCalenderMinMax();
