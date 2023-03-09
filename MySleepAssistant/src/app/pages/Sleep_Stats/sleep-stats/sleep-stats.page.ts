@@ -109,10 +109,12 @@ export class SleepStatsPage implements OnInit {
         var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
         this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
         this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+
         for (let i = 0; i < new_sleep_day.getRecommendations().length; i++)
         {
           this.sleep_reccomendation_array.push(new_sleep_day.getRecommendations()[i]);
         }
+
         break
       }
     }
@@ -166,10 +168,12 @@ export class SleepStatsPage implements OnInit {
         var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
         this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
         this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+
         for (let i = 0; i < new_sleep_day.getRecommendations().length; i++)
         {
           this.sleep_reccomendation_array.push(new_sleep_day.getRecommendations()[i]);
         }
+
         break
       }
     }

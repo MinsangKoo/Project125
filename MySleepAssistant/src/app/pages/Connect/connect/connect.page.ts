@@ -34,6 +34,7 @@ export class ConnectPage implements OnInit {
 
     let p = this.personService.getPerson();
       
+
     let sleepDay = new sleep_day(18.25, 54.50, 27.25, 429, new time(10,51,'PM'), new time(6,0,'AM'), 1, new Date(2,8,2023));
     let sleepDay2 = new sleep_day(21.38, 47.79, 30.83, 595, new time(9,36,'PM'), new time(7,31,'AM'), 0, new Date(2,9,2023));
     let sleepDay3 = new sleep_day(8.67, 58.97, 32.36, 469, new time(10,12,'PM'), new time(6,1,'AM'), 0, new Date(2,10,2023));
@@ -64,6 +65,7 @@ export class ConnectPage implements OnInit {
     let sleepDay28 = new sleep_day(5.31, 63.97, 30.72, 464, new time(10,24,'PM'), new time(6,8,'AM'), 1, new Date(3,7,2023));
     let sleepDay29 = new sleep_day(20.96, 55.30, 23.73, 479, new time(9,56,'PM'), new time(5,55,'AM'), 0, new Date(3,8,2023));
     let sleepDay30 = new sleep_day(20.91, 56.11, 22.97, 428, new time(10,55,'PM'), new time(6,3,'AM'), 0, new Date(3,9,2023));
+
 
     this.personService.addDay(sleepDay);
     this.personService.addDay(sleepDay2);
@@ -96,6 +98,7 @@ export class ConnectPage implements OnInit {
     this.personService.addDay(sleepDay29);
     this.personService.addDay(sleepDay30);
 
+
     calculate_sleepscore(p, sleepDay, 29);
     calculate_sleepscore(p, sleepDay2, 28);
     calculate_sleepscore(p, sleepDay3, 27);
@@ -127,7 +130,7 @@ export class ConnectPage implements OnInit {
     calculate_sleepscore(p, sleepDay29, 1);
     calculate_sleepscore(p, sleepDay30, 0);
 
-    
+
 
   }
 }
