@@ -121,6 +121,7 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
     {
       rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
       gettingTooMuchSleep = true;
+      break;
     }
   }
 
@@ -207,9 +208,12 @@ export function calculate_sleepscore(person: Person, day: sleep_day) {
         sleepTime.set_minutes(sleepTime.getMinutes() - 10)
       }
     }
-    rec.push("We recommend going to sleep at ${sleepTime.getTime()}");
+    rec.push("We recommend going to sleep at " + sleepTime.getTime());
   }
-  
+  // account for if they don't have enough available hours
+
+
+  day.setRecommendations(rec);
 
 
 }
