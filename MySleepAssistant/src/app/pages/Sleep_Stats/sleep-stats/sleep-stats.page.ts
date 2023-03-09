@@ -22,8 +22,7 @@ export class SleepStatsPage implements OnInit {
   public prevDateString2 = '';
   public selectedDateString = '';
   public sleep_score = 15;
-  public sleep_reccomendation_text =
-    'Go to sleep. This will improve the amount of deep and rem sleep that you get';
+  public sleep_reccomendation_array: String[] = [];
   public sleep_duration = '2h 41m';
   public light_sleep_ratio = 70;
   public deep_sleep_ratio = 15;
@@ -109,6 +108,12 @@ export class SleepStatsPage implements OnInit {
         var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
         this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
         this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+
+        for (let i = 0; i < new_sleep_day.getRecommendations().length; i++)
+        {
+          this.sleep_reccomendation_array.push(new_sleep_day.getRecommendations()[i]);
+        }
+
         break
       }
     }
@@ -161,6 +166,12 @@ export class SleepStatsPage implements OnInit {
         var sleep_duration_minutes = String(Math.floor(new_sleep_day.getSleeptime() % 60));
         this.sleep_duration = sleep_duration_hours + 'h ' + sleep_duration_minutes + 'm';
         this.sleep_score = Math.floor(new_sleep_day.getSleepscore());
+
+        for (let i = 0; i < new_sleep_day.getRecommendations().length; i++)
+        {
+          this.sleep_reccomendation_array.push(new_sleep_day.getRecommendations()[i]);
+        }
+
         break
       }
     }

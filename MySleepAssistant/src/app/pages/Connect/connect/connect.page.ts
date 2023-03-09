@@ -34,9 +34,11 @@ export class ConnectPage implements OnInit {
 
     let p = this.personService.getPerson();
       
+
+
     let sleepDay = new sleep_day(18.25, 54.50, 27.25, 395, new time(10,51,'PM'), new time(6,0,'AM'), 1, new Date(3,6,2023));
     let sleepDay2 = new sleep_day(21.38, 47.79, 30.83, 487, new time(9,36,'PM'), new time(7,31,'AM'), 0, new Date(3,7,2023));
-    let sleepDay3 = new sleep_day(8.67, 58.97, 32.36, 410, new time(10,12,'PM'), new time(6,1,'AM'), 0, new Date(1,25,2023));
+    let sleepDay3 = new sleep_day(8.67, 58.97, 32.36, 410, new time(10,12,'PM'), new time(6,1,'AM'), 0, new Date(3,8,2023));
     let sleepDay4 = new sleep_day(15.14, 56.61, 28.24, 420, new time(11,14,'PM'), new time(7,3,'AM'), 1, new Date(1,26,2023));
     let sleepDay5 = new sleep_day(27.31, 52.67, 20.03, 385, new time(11,41,'PM'), new time(6,53,'AM'), 1, new Date(1,27,2023));
     let sleepDay6 = new sleep_day(15.14, 59.34, 25.52, 453, new time(10,43,'PM'), new time(6,37,'AM'), 0, new Date(1,28,2023));
@@ -64,6 +66,38 @@ export class ConnectPage implements OnInit {
     let sleepDay28 = new sleep_day(5.31, 63.97, 30.72, 433, new time(10,24,'PM'), new time(6,8,'AM'), 1, new Date(2,19,2023));
     let sleepDay29 = new sleep_day(20.96, 55.30, 23.73, 415, new time(9,56,'PM'), new time(5,55,'AM'), 0, new Date(2,20,2023));
     let sleepDay30 = new sleep_day(20.91, 56.11, 22.97, 340, new time(10,55,'PM'), new time(6,3,'AM'), 0, new Date(2,21,2023));
+
+    this.personService.addDay(sleepDay);
+    this.personService.addDay(sleepDay2);
+    this.personService.addDay(sleepDay3);
+    this.personService.addDay(sleepDay4);
+    this.personService.addDay(sleepDay5);
+    this.personService.addDay(sleepDay6);
+    this.personService.addDay(sleepDay7);
+    this.personService.addDay(sleepDay8);
+    this.personService.addDay(sleepDay9);
+    this.personService.addDay(sleepDay10);
+    this.personService.addDay(sleepDay11);
+    this.personService.addDay(sleepDay12);
+    this.personService.addDay(sleepDay13);
+    this.personService.addDay(sleepDay14);
+    this.personService.addDay(sleepDay15);
+    this.personService.addDay(sleepDay16);
+    this.personService.addDay(sleepDay17);
+    this.personService.addDay(sleepDay18);
+    this.personService.addDay(sleepDay19);
+    this.personService.addDay(sleepDay20);
+    this.personService.addDay(sleepDay21);
+    this.personService.addDay(sleepDay22);
+    this.personService.addDay(sleepDay23);
+    this.personService.addDay(sleepDay24);
+    this.personService.addDay(sleepDay25);
+    this.personService.addDay(sleepDay26);
+    this.personService.addDay(sleepDay27);
+    this.personService.addDay(sleepDay28);
+    this.personService.addDay(sleepDay29);
+    this.personService.addDay(sleepDay30);
+
 
     calculate_sleepscore(p, sleepDay);
     calculate_sleepscore(p, sleepDay2);
@@ -96,36 +130,6 @@ export class ConnectPage implements OnInit {
     calculate_sleepscore(p, sleepDay29);
     calculate_sleepscore(p, sleepDay30);
 
-    this.personService.addDay(sleepDay);
-    this.personService.addDay(sleepDay2);
-    this.personService.addDay(sleepDay3);
-    this.personService.addDay(sleepDay4);
-    this.personService.addDay(sleepDay5);
-    this.personService.addDay(sleepDay6);
-    this.personService.addDay(sleepDay7);
-    this.personService.addDay(sleepDay8);
-    this.personService.addDay(sleepDay9);
-    this.personService.addDay(sleepDay10);
-    this.personService.addDay(sleepDay11);
-    this.personService.addDay(sleepDay12);
-    this.personService.addDay(sleepDay13);
-    this.personService.addDay(sleepDay14);
-    this.personService.addDay(sleepDay15);
-    this.personService.addDay(sleepDay16);
-    this.personService.addDay(sleepDay17);
-    this.personService.addDay(sleepDay18);
-    this.personService.addDay(sleepDay19);
-    this.personService.addDay(sleepDay20);
-    this.personService.addDay(sleepDay21);
-    this.personService.addDay(sleepDay22);
-    this.personService.addDay(sleepDay23);
-    this.personService.addDay(sleepDay24);
-    this.personService.addDay(sleepDay25);
-    this.personService.addDay(sleepDay26);
-    this.personService.addDay(sleepDay27);
-    this.personService.addDay(sleepDay28);
-    this.personService.addDay(sleepDay29);
-    this.personService.addDay(sleepDay30);
 
   }
 }

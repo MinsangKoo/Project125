@@ -41,8 +41,12 @@
         <ion-card-title style="font-size:25px; font-weight: bold">Sleep Recommendation</ion-card-title>
       </ion-card-header>
   
-      <ion-card-content style="font-size:20px">
-        {{sleep_reccomendation_text}}
+      <ion-card-content style="font-size:20px; justify-content: left; font-size: 15px; line-height: 1em; padding-left: 0%; padding-right: 0%;">
+        <ul *ngFor="let val of sleep_reccomendation_array">
+          <li style="text-align: left; justify-content: left; font-size: 17px; line-height: 1em; padding-left: 1%; padding-right: 1%;">
+            {{ val }}
+          </li>
+        </ul>
       </ion-card-content>
   
     </ion-card>

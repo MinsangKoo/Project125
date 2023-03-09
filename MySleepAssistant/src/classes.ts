@@ -23,7 +23,20 @@ export class time {
     return this.l;
   }
   getTime() { // returns the time in this format 12:00 PM 
-    return this.hour.toString() + ':' + this.minute.toString() + ' ' + this.l;
+    if (this.minute < 10)
+    {
+      return this.hour.toString() + ':0' + this.minute.toString() + ' ' + this.l;
+    }
+    else
+    {
+      return this.hour.toString() + ':' + this.minute.toString() + ' ' + this.l;
+    }
+  }
+  set_minutes(minutes: number) {
+    this.minute = minutes;
+  }
+  set_hours(hour: number) {
+    this.hour = hour;
   }
   set_minutes(minutes: number) {
     this.minute = minutes;
