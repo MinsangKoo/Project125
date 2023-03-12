@@ -48,12 +48,16 @@ export class SleepStatsPage implements OnInit {
         (this.dateObj2.getMonth() + 1).toString() +
         '-';
 
-    if (this.dateObj2.getDate() < 10)
+    if (this.dateObj2.getDate() <= 10)
       this.currentDateString2 +=
-        '0' + this.dateObj2.getDate().toString() + 'T00:00:00';
+        '0' + (this.dateObj2.getDate() - 1).toString() + 'T00:00:00';///////////////////////////////
     else
       this.currentDateString2 +=
-        this.dateObj2.getDate().toString() + 'T00:00:00';
+        (this.dateObj2.getDate() - 1).toString() + 'T00:00:00';///////////////////////////////////
+
+
+    this.dateObj2.setDate(this.prevDate2.getDate() - 1);//////////////////////////////////////
+
 
     this.prevDate2 = this.dateObj2;
     this.prevDate2.setDate(this.prevDate2.getDate() - 30);
@@ -78,6 +82,13 @@ export class SleepStatsPage implements OnInit {
         '0' + this.prevDate2.getDate().toString() + 'T00:00:00';
     else
       this.prevDateString2 += this.prevDate2.getDate().toString() + 'T00:00:00';
+
+      // console.log(this.dateObj2)
+      // console.log(this.prevDate2)
+      // console.log(this.currentDateString2)
+      // console.log(this.prevDateString2)
+      // console.log(this.selectedDateString);
+
   }
 
  // This function is called whenever the user changes the date
@@ -141,10 +152,40 @@ export class SleepStatsPage implements OnInit {
     // this.sleep_score = s.sleep_score;
 
     var date = new Date();
-    var day = String(date.getDate());
+    var day = String(date.getDate() - 1); ////////////////////////////////////////////////
     var month = String(date.getMonth() + 1);
     var year = String(date.getFullYear());
     this.sleep_reccomendation_array = [];
+
+    var dateS = '';
+
+
+
+    if (date.getMonth() + 1 < 10)
+        dateS =
+        date.getFullYear().toString() +
+        '-0' +
+        (date.getMonth() + 1).toString() +
+        '-';
+    else
+        dateS =
+        date.getFullYear().toString() +
+        '-' +
+        (date.getMonth() + 1).toString() +
+        '-';
+
+    if (date.getDate() <= 10)
+        dateS +=
+        '0' + (date.getDate() - 1).toString() + 'T00:00:00';///////////////////////////////
+    else
+        dateS +=
+        (date.getDate() - 1).toString() + 'T00:00:00';///////////////////////////////////
+    this.selectedDateString = dateS;
+
+
+
+
+
 
     var person = this.personService.getPerson()
     var sleep_data = person.sleep_data
@@ -152,6 +193,8 @@ export class SleepStatsPage implements OnInit {
     var dateString = month + day + year;
     var new_sleep_day = null;
 
+    console.log('here')
+    console.log(sleep_data.length)
     for (let i = 0; i < sleep_data.length; i++) {
       console.log(sleep_data[i].getDateString());
       if (sleep_data[i].getDateString() == dateString) {
