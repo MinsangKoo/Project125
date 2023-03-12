@@ -96,6 +96,7 @@ export class ConnectPage implements OnInit {
     this.personService.addDay(sleepDay29);
     this.personService.addDay(sleepDay30);
 
+
     calculate_sleepscore(p, sleepDay, 29);
     calculate_sleepscore(p, sleepDay2, 28);
     calculate_sleepscore(p, sleepDay3, 27);
@@ -127,7 +128,7 @@ export class ConnectPage implements OnInit {
     calculate_sleepscore(p, sleepDay29, 1);
     calculate_sleepscore(p, sleepDay30, 0);
 
-    
+
 
   }
 }

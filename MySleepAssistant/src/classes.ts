@@ -38,6 +38,12 @@ export class time {
   set_hours(hour: number) {
     this.hour = hour;
   }
+  set_minutes(minutes: number) {
+    this.minute = minutes;
+  }
+  set_hours(hour: number) {
+    this.hour = hour;
+  }
 
 }
 /*

@@ -142,12 +142,14 @@ export function calculate_sleepscore(person: Person, day: sleep_day, day_num: nu
   {
     for (let i = day_num; i < person.sleep_data.length - 1; i++) // looping over 5 most recent days to see if they got too much sleep
     {
+
       if (person.sleep_data[i + 1].getSleeptime() - person.sleep_data[i].getSleeptime() < 90) // not getting enough sleep
       {
         rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
         gettingTooMuchSleep = true;
         break;
       }
+
     }
   }
 
@@ -262,12 +264,14 @@ export function calculate_sleepscore(person: Person, day: sleep_day, day_num: nu
         sleepTime.set_minutes(sleepTime.getMinutes() - 10)
       }
     }
+
     rec.push("We recommend going to sleep at " + sleepTime.getTime());
   }
   
 
 
   day.setRecommendations(rec);
+
 
 
 }
