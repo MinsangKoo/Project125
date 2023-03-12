@@ -237,7 +237,7 @@ export function calculate_sleepscore(person: Person, day: sleep_day, day_num: nu
 
   var recBedtime = null;
   if (!gettingTooMuchSleep) {
-    rec.push("Recommended sleep time: " + earliestSleepTimeAvailable.getTime());
+    rec.push("Recommended sleep time: " + earliestSleepTimeAvailable.getTime()); //////////////////////////////////////////////////////////
   }
 
   else if ((time_diff(latestWakeUpTimeAvailable, earliestSleepTimeAvailable)) < a1.get_avg_sleeptime())
