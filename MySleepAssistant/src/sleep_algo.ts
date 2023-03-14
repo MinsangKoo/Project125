@@ -86,16 +86,23 @@ export function calculate_sleepscore(person: Person, day: sleep_day, day_num: nu
     (avg_sleeptime - Math.abs(avg_sleeptime - cur_sleeptime)) / avg_sleeptime;
 
   var bedtime_score =
-    (time_to_minute(avg_bedtime) - time_diff(avg_bedtime, cur_bedtime)) /
-    time_to_minute(avg_bedtime);
+    (720 - time_diff(avg_bedtime, cur_bedtime)) / 720;
   var wakeup_score =
-    (time_to_minute(avg_wakeup) - time_diff(avg_wakeup, cur_wakeup)) /
-    time_to_minute(avg_wakeup);
+    (720 - time_diff(avg_wakeup, cur_wakeup)) / 720;
 
   var caffeine_score = calc_caffeine_score(cur_caffeine);
 
   var sleep_score =
     (deep_score + light_score + rem_score + sleeptime_score * 2 + bedtime_score * .5 + wakeup_score * .5 + caffeine_score) * (100 / 7);
+
+  console.log(deep_score)
+  console.log(light_score)
+  console.log(rem_score)
+  console.log(sleeptime_score)
+  console.log(bedtime_score)
+  console.log(wakeup_score)
+  console.log(caffeine_score)
+  console.log(sleep_score);
 
   day.setSleepscore(sleep_score)
 
@@ -152,32 +159,6 @@ export function calculate_sleepscore(person: Person, day: sleep_day, day_num: nu
 
     }
   }
-
-
-
-
-
-  // for (let i = 1; i < 5; i++) // looping over 5 most recent days
-  // {
-  //   if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() > 90) // not getting enough sleep
-  //   {
-  //     rec.push("You are getting less than average sleep due to sleeping later than usual")
-  //   }
-  // }
-
-
-
-
-
-  // for (let i = 1; i < 5; i++) // looping over 5 most recent days to see if they got too much sleep
-  // {
-  //   if (person.sleep_data[i - 1].getSleeptime() - person.sleep_data[i].getSleeptime() < 90) // not getting enough sleep
-  //   {
-  //     rec.push("You are getting greater than average sleep due to sleeping in earlier than usual")
-  //     gettingTooMuchSleep = true;
-  //     break;
-  //   }
-  // }
 
   if (day.getRem() < a1.get_avg_rem())
   {
