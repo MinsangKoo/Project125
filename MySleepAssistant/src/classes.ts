@@ -38,12 +38,6 @@ export class time {
   set_hours(hour: number) {
     this.hour = hour;
   }
-  set_minutes(minutes: number) {
-    this.minute = minutes;
-  }
-  set_hours(hour: number) {
-    this.hour = hour;
-  }
 
 }
 /*
@@ -207,6 +201,8 @@ export class Person {
     return this.name;
   }
   getAge() {
+    console.log("age")
+    console.log(this.age);
     return this.age;
   }
   getGender() {
