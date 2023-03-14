@@ -27,6 +27,8 @@ export class SignUpPage implements OnInit {
     var birthdate = new Date(this.birthday)
     let timeDiff = Math.abs(Date.now() - birthdate.getTime());
     let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
+    console.log("age here")
+    console.log(age)
     var gender = this.gender
 
     this.personService.setName(name)
